@@ -7,6 +7,7 @@
     <header class="banner">
         <h1>Bienvenue au Camping Paradis</h1>
         <p>Profitez de la nature, du confort et des meilleures expériences.</p>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <a href="{{ path('reservation') }}" class="btn">Réserver maintenant</a>
     </header>
 
@@ -33,5 +34,30 @@
                 <p>Randonnées, piscines, terrains de sport et plus encore.</p>
             </div>
         </div>
+    </section>
+
+    <!-- section location -->
+    <section class="location">
+    <h2> Terrain nu <h2>
+    <p> Vous pouvez louer un terrain nu pour y installer votre tente ou votre caravane. </p>
+<!-- Recupération des nom de type en guise de partie -->
+<section class="services">
+    <h2>Nos services</h2>
+    <div class="service-list">
+        {% for type in type %}
+            <div class="service">
+                <h3>🏡 {{ type.name }}</h3>
+                <ul>
+                    {% for logement in type.logements %}
+                        <li>{{ logement.name }}</li> <!-- Remplace 'name' par le champ du logement -->
+                    {% else %}
+                        <li>Aucun logement disponible pour ce type.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
     </section>
 {% endblock %}

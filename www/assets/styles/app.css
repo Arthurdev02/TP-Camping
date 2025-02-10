@@ -1,3 +1,165 @@
+/* Reset général */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+a,
+button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Police Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 body {
-    background-color: rgb(24, 53, 179);
+    font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f9;
+        margin: 0;
+    }
+    
+    /* Navbar */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #007b5e;
+        color: white;
+    }
+    
+    nav .logo a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+    }
+    
+    nav .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    nav .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+    }
+    
+    nav .auth .btn {
+        background-color: white;
+        color: #007b5e;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    
+    nav .auth .btn:hover {
+        background-color: #005f47;
+        color: white;
+    }
+    
+    /* Bannière */
+    header.banner {
+        text-align: center;
+        background-image: url('https://via.placeholder.com/1200x400');
+        /* Remplace par une vraie image */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 4rem 2rem;
+    }
+    
+    header.banner h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    header.banner p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    header.banner .btn {
+        background-color: #ff6f61;
+        color: white;
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 20px;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    header.banner .btn:hover {
+        background-color: #d9554d;
+    }
+    
+    /* Sections */
+    section {
+        padding: 2rem 4rem;
+        text-align: center;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #007b5e;
+    }
+    
+    section p {
+        margin-bottom: 2rem;
+        color: #555;
+    }
+    
+    section.services {
+        background-color: #fff;
+    }
+    
+    section.services .service-list {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    section.services .service {
+        flex: 1;
+        max-width: 300px;
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    section.services .service h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    section.services .service p {
+        color: #666;
+    }
+    
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #007b5e;
+        color: white;
+        margin-top: 2rem;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
 }
