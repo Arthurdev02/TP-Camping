@@ -1,16 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil - Camping Paradis{% endblock %}
 
-{% block body %}
+{% block content %}
+    <!-- Bannière -->
+    <header class="banner">
+        <h1>Bienvenue au Camping Paradis</h1>
+        <p>Profitez de la nature, du confort et des meilleures expériences.</p>
+        <a href="{{ path('reservation') }}" class="btn">Réserver maintenant</a>
+    </header>
 
-<div class="nav-bar">
-    <h1>Salut, bienvenue <!--TODO: faire en sorte de mattre le nom de l'utilisateur-->, viens trouver ton nouveaux voyage dans le Sud de Mars </h1>
+    <!-- Section Présentation -->
+    <section class="presentation">
+        <h2>À propos de notre camping</h2>
+        <p>Situé en pleine nature, notre camping vous offre un cadre exceptionnel pour vous ressourcer en famille ou entre amis.</p>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/html/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/var/www/html/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+    <!-- Section Services -->
+    <section class="services">
+        <h2>Nos services</h2>
+        <div class="service-list">
+            <div class="service">
+                <h3>🏡 Hébergements confortables</h3>
+                <p>Des chalets, tentes et mobil-homes équipés.</p>
+            </div>
+            <div class="service">
+                <h3>🔥 Aires de barbecue</h3>
+                <p>Profitez de soirées conviviales autour d’un bon feu.</p>
+            </div>
+            <div class="service">
+                <h3>🎯 Activités et loisirs</h3>
+                <p>Randonnées, piscines, terrains de sport et plus encore.</p>
+            </div>
+        </div>
+    </section>
 {% endblock %}
