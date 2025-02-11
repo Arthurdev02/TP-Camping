@@ -82,3 +82,315 @@ body {
     font-weight: bold;
     text-decoration: underline;
 }
+
+nav {
+    background: linear-gradient(90deg, #6e260e, #ff4500);
+    /* Dégradé rouge/orange martien */
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+    border-bottom: 3px solid #ff6347;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    background: rgba(255, 69, 0, 0.2);
+    /* Légère transparence */
+    backdrop-filter: blur(5px);
+}
+
+nav ul li a:hover {
+    background: rgba(255, 69, 0, 0.5);
+    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
+    color: #ffcc00;
+    /* Jaune martien */
+}
+
+/* 🔥 Effet spécial pour le lien actif */
+nav ul li a.active,
+nav ul li a:focus {
+    background: #ffcc00;
+    color: #6e260e;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+}
+
+/* 🌌 Style futuriste pour le profil et la connexion */
+nav ul li:last-child a {
+    border: 2px solid #ffcc00;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+nav ul li:last-child a:hover {
+    background: #ffcc00;
+    color: #6e260e;
+}
+
+/* ------------------ */
+/* 🌌 PAGE CONTACT MARS */
+/* ------------------ */
+
+.contact-container {
+    max-width: 700px;
+    margin: 80px auto;
+    background: #1a1a1a;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.5);
+    text-align: center;
+}
+
+.contact-container h1 {
+    color: #ff4500;
+    font-size: 28px;
+    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.8);
+}
+
+.contact-info {
+    background: rgba(255, 69, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff4500;
+    border-radius: 5px;
+    background: rgba(255, 69, 0, 0.1);
+    color: white;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form button {
+    background: #ff4500;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
+    transition: 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background: #ffcc00;
+    color: #1a1a1a;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+}
+
+.fun-facts {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 69, 0, 0.1);
+    border-radius: 10px;
+}
+
+.fun-facts h2 {
+    color: #ffcc00;
+}
+
+.fun-facts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fun-facts li {
+    text-align: left;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.fun-facts li strong {
+    color: #ff4500;
+}
+
+/* ------------------ */
+/* 🚀 PAGE DE CONNEXION FUTURISTE */
+/* ------------------ */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('../images/mars-login-bg.jpg') center/cover no-repeat;
+    /* Image de fond (optionnelle) */
+    background-color: #0a0a0a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: rgba(255, 69, 0, 0.15);
+    border: 2px solid #ff4500;
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
+}
+
+.login-container h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.9);
+}
+
+.login-container p {
+    font-size: 14px;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff0000;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* 🛰️ Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff4500;
+    border-radius: 5px;
+    background: rgba(255, 69, 0, 0.1);
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* 🔥 Bouton animé */
+.btn {
+    background: linear-gradient(90deg, #ff4500, #ffcc00);
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #ffcc00;
+    color: #0a0a0a;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+}
+
+/* 🔗 Lien inscription */
+.login-container a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------ */
+/* 🌌 BOTTOM BAR FUTURISTE */
+/* ------------------ */
+
+.bottom-bar {
+    background: linear-gradient(90deg, #6e260e, #ff4500);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px -4px 10px rgba(255, 69, 0, 0.3);
+    border-top: 2px solid #ffcc00;
+}
+
+.bottom-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.bottom-content a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.bottom-content a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}

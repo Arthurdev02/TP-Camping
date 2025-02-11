@@ -10,13 +10,11 @@
 
 {% include '_aide/_navbar.html.twig' %}
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+           {% block body %}
+           
+           {% endblock %}
 
-    <footer>
-        <p>&copy; 2024 Mon Site | Tous droits réservés</p>
-    </footer>
-
+{% block footer %}
+{% endblock %}
 </body>
 </html>

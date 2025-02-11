@@ -1,15 +1,17 @@
-
 <nav>
     <ul>
-        <li><a href="{{ path('home') }}">Accueil</a></li>
-        <li><a href="{{ path('reservation') }}">Reservation</a></li>
-        <li><a href="{{ path('listes') }}">Nos habitat</a></li>
+        <li><a href="{{ path('home') }}" class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}">Accueil</a></li>
+        <li><a href="{{ path('reservation') }}" class="{% if app.request.attributes.get('_route') == 'reservation' %}active{% endif %}">Réservation</a></li>
+        <li><a href="{{ path('listes') }}" class="{% if app.request.attributes.get('_route') == 'listes' %}active{% endif %}">Nos habitats</a></li>
+        <li><a href="{{ path('app_login') }}"> Login</a></li>
+
 
         {% if app.user %}
-            <li><a href="{{ path('profile') }}">Profil</a></li>
+            <li><a href="{{ path('app_user_index') }}" class="{% if app.request.attributes.get('_route') == 'profile' %}active{% endif %}">Profil</a></li>
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
         {% else %}
-            <li><a href="{{ path('app_login') }}">Connexion</a></li>
         {% endif %}
     </ul>
 </nav>
+
+

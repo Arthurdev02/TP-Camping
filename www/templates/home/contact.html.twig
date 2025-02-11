@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez la Station Spatiale Martienne 🚀{% endblock %}
+
+{% block content %}
+<section class="contact-container">
+    <h1>🛰️ Contactez la Base Spatiale de Mars 🌕</h1>
+    <p>Une question sur nos hébergements martiens ? Un problème avec votre combinaison spatiale ? Un alien squatte votre mobil-home ? Contactez-nous !</p>
+
+    <div class="contact-info">
+        <p><strong>📍 Adresse :</strong> Cratère Olympus Mons, Mars</p>
+        <p><strong>📡 Fréquence radio :</strong> 42.5 FM (en cas de tempête solaire, utilisez le mode Morse)</p>
+        <p><strong>🛸 Service d’urgence :</strong> Composez le 112 interplanétaire (temps de réponse : 15 minutes-lumière)</p>
+    </div>
+
+    <form class="contact-form">
+        <label for="name">👨‍🚀 Nom de l’astronaute :</label>
+        <input type="text" id="name" name="name" placeholder="Neil Armstrong" required>
+
+        <label for="email">📧 Adresse spatiale :</label>
+        <input type="email" id="email" name="email" placeholder="vous@mars.space" required>
+
+        <label for="message">💬 Votre message :</label>
+        <textarea id="message" name="message" rows="5" placeholder="J’ai perdu mon casque sur Phobos, que faire ?" required></textarea>
+
+        <button type="submit" class="btn">📨 Envoyer un signal</button>
+    </form>
+
+    <div class="fun-facts">
+        <h2>🛠️ FAQ Spatiale</h2>
+        <ul>
+            <li>👽 <strong>J’ai vu un alien :</strong> Pas de panique, proposez-lui un café lyophilisé.</li>
+            <li>🚀 <strong>Mon module d’atterrissage est en panne :</strong> Merci de patienter 6 mois pour une assistance.</li>
+            <li>🌋 <strong>Je suis bloqué dans une tempête de sable martienne :</strong> Évitez de sortir en short et tongs.</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
