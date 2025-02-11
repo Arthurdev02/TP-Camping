@@ -34,18 +34,22 @@ class Statut
         return $this->id;
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
-
         return $this;
     }
-
     /**
      * @return Collection<int, Reservation>
      */

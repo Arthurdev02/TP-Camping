@@ -73,14 +73,14 @@ class Reservation
         return $this;
     }
 
-    public function getStatus(): ?Statut
+    public function getStatut(): ?Statut
     {
-        return $this->Status;
+        return $this->Statut;
     }
 
-    public function setStatus(?Statut $Status): static
+    public function setStatut(?Statut $Statut): static
     {
-        $this->Status = $Status;
+        $this->Statut = $Statut;
 
         return $this;
     }

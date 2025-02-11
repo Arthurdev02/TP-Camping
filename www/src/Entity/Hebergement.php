@@ -37,6 +37,9 @@ class Hebergement
     #[ORM\OneToMany(targetEntity: Tarification::class, mappedBy: 'hebergements')]
     private Collection $tarifications;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
+
     public function __construct()
     {
         $this->tarifications = new ArrayCollection();
@@ -133,6 +136,18 @@ class Hebergement
                 $tarification->setHebergements(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
 
         return $this;
     }

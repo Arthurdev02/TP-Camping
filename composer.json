@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.0"
+    },
+    "require": {
+        "symfony/webpack-encore-bundle": "^2.2"
     }
 }

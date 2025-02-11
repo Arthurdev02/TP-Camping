@@ -21,6 +21,7 @@ class ComposerStaticInit68caee90df90dce6cfe651a9adfbdc2d
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\WebpackEncoreBundle\\' => 28,
             'Symfony\\Polyfill\\Php83\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -44,6 +45,7 @@ class ComposerStaticInit68caee90df90dce6cfe651a9adfbdc2d
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
             'Symfony\\Component\\Cache\\' => 24,
+            'Symfony\\Component\\Asset\\' => 24,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Doctrine\\' => 24,
         ),
@@ -74,6 +76,10 @@ class ComposerStaticInit68caee90df90dce6cfe651a9adfbdc2d
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\WebpackEncoreBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src',
+        ),
         'Symfony\\Polyfill\\Php83\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php83',
@@ -165,6 +171,10 @@ class ComposerStaticInit68caee90df90dce6cfe651a9adfbdc2d
         'Symfony\\Component\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/cache',
+        ),
+        'Symfony\\Component\\Asset\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/asset',
         ),
         'Symfony\\Bundle\\FrameworkBundle\\' => 
         array (

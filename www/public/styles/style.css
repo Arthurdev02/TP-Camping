@@ -1,0 +1,84 @@
+body {
+    font-family: "Arial", sans-serif;
+        margin: 0;
+    padding: 0;
+        background-color: #0a0a0a;
+        color: white;
+    }
+/* Hero Section */
+.hero {
+    background: url('../images/mars-bg.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+.hero h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.8);
+}
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ff4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
+}
+.btn:hover {
+    background: #d43f00;
+}
+/* Hébergements */
+.hebergements {
+    text-align: center;
+    padding: 50px 20px;
+    }
+.hebergement-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.hebergement {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
+    text-align: center;
+    width: 30%;
+}
+.hebergement img {
+    width: 100%;
+    border-radius: 10px;
+}
+/* Témoignages */
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+    background: #222;
+}
+.testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    }
+.testimonial {
+    background: #333;
+    padding: 15px;
+    border-radius: 10px;
+    width: 30%;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+    }
+/* Contact */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+        background: #ff4500;
+        color: white;
+}
+.contact a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}

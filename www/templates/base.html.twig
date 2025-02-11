@@ -3,30 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Camping Paradis{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>{% block title %}Accueil{% endblock %}</title>
+<link rel="stylesheet" href="{{ asset('styles/style.css') }}">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">
-            <a href="{{ path('acceuil') }}">🏕️ Camping Paradis</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{{ path('acceuil') }}">Accueil</a></li>
-            <li><a href="{{ path('registration') }}">Seconnecter</a></li>
-        </ul>
-    </nav>
+{% include '_aide/_navbar.html.twig' %}
 
-    <!-- Contenu de la page -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; {{ "now"|date("Y") }} Camping Paradis. Tous droits réservés.</p>
+        <p>&copy; 2024 Mon Site | Tous droits réservés</p>
     </footer>
 
 </body>

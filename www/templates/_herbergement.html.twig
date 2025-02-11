@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Hébergement{% endblock %}
+
+{% block content %}
+
+<section class="hebergement-card">
+    <div class="card-container">
+        <div class="card-header">
+            <h1>{{ hebergement.nom }}</h1>
+            <p class="status {% if hebergement.estLibre %}disponible{% else %}occupe{% endif %}">
+                {% if hebergement.estLibre %}✔ Disponible{% else %}❌ Occupé{% endif %}
+            </p>
+        </div>
+
+        <div class="card-body">
+            <div class="image-container">
+                <img src="{{ asset('images/' ~ hebergement.image) }}" alt="{{ hebergement.nom }}">
+            </div>
+
+            <div class="info">
+                <h2>Informations générales</h2>
+                <ul>
+                    <li><strong>Capacité :</strong> {{ hebergement.capacite }} personnes</li>
+                    <li><strong>Superficie :</strong> {{ hebergement.superficie }} m²</li>
+                    <li><strong>Type :</strong> {{ hebergement.type.nom }}</li>
+                    <li><strong>Prix :</strong> {{ hebergement.prix }}€ / nuit</li>
+                </ul>
+
+                <h2>Équipements</h2>
+                <ul>
+                    {% for equipement in hebergement.equipements %}
+                        <li>✔ {{ equipement.nom }}</li>
+                    {% else %}
+                        <li>Aucun équipement disponible</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            {% if hebergement.estLibre %}
+                <a href="{{ path('reserver', { 'id': hebergement.id }) }}" class="btn btn-primary">Réserver Maintenant</a>
+            {% else %}
+                <p class="not-available">Cet hébergement est actuellement indisponible.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

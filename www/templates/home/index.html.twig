@@ -1,63 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - Camping Paradis{% endblock %}
+{% block title %}Vacances sur Mars | Réservez votre espace extraterrestre{% endblock %}
 
 {% block content %}
-    <!-- Bannière -->
-    <header class="banner">
-        <h1>Bienvenue au Camping Paradis</h1>
-        <p>Profitez de la nature, du confort et des meilleures expériences.</p>
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <a href="{{ path('reservation') }}" class="btn">Réserver maintenant</a>
-    </header>
 
-    <!-- Section Présentation -->
-    <section class="presentation">
-        <h2>À propos de notre camping</h2>
-        <p>Situé en pleine nature, notre camping vous offre un cadre exceptionnel pour vous ressourcer en famille ou entre amis.</p>
-    </section>
-
-    <!-- Section Services -->
-    <section class="services">
-        <h2>Nos services</h2>
-        <div class="service-list">
-            <div class="service">
-                <h3>🏡 Hébergements confortables</h3>
-                <p>Des chalets, tentes et mobil-homes équipés.</p>
-            </div>
-            <div class="service">
-                <h3>🔥 Aires de barbecue</h3>
-                <p>Profitez de soirées conviviales autour d’un bon feu.</p>
-            </div>
-            <div class="service">
-                <h3>🎯 Activités et loisirs</h3>
-                <p>Randonnées, piscines, terrains de sport et plus encore.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- section location -->
-    <section class="location">
-    <h2> Terrain nu <h2>
-    <p> Vous pouvez louer un terrain nu pour y installer votre tente ou votre caravane. </p>
-<!-- Recupération des nom de type en guise de partie -->
-<section class="services">
-    <h2>Nos services</h2>
-    <div class="service-list">
-        {% for type in type %}
-            <div class="service">
-                <h3>🏡 {{ type.name }}</h3>
-                <ul>
-                    {% for logement in type.logements %}
-                        <li>{{ logement.name }}</li> <!-- Remplace 'name' par le champ du logement -->
-                    {% else %}
-                        <li>Aucun logement disponible pour ce type.</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endfor %}
+<!-- Section Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>🚀 Explorez la Face Sud de Mars 🌑</h1>
+        <p>Des vacances inoubliables sous les étoiles, loin de la Terre. Choisissez votre hébergement martien idéal !</p>
+        <a href="{{ path('reservation') }}" class="btn">Réserver un séjour</a>
     </div>
 </section>
 
-    </section>
+<!-- Hébergements -->
+<section class="hebergements">
+    <h2>Nos Hébergements sur Mars</h2>
+    <div class="hebergement-list">
+        <div class="hebergement">
+            <img src="{{ asset('images/terrain-nu-mars.jpg') }}" alt="Terrain Nu Martien">
+            <h3>🏕️ Terrain Nu Martien</h3>
+            <p>Idéal pour les explorateurs en quête de solitude sous le ciel rouge. Apportez votre propre équipement !</p>
+        </div>
+        <div class="hebergement">
+            <img src="{{ asset('images/tente-meublee-mars.jpg') }}" alt="Tente Meublée Martienne">
+            <h3>⛺ Tente Meublée Spatiale</h3>
+            <p>Un dôme pressurisé avec chauffage et oxygène recyclé. L’aventure martienne sans compromis !</p>
+        </div>
+        <div class="hebergement">
+            <img src="{{ asset('images/mobil-home-mars.jpg') }}" alt="Mobil-home Martien">
+            <h3>🏡 Mobil-home de Luxe</h3>
+            <p>Tout le confort d’une habitation terrestre, adapté à l’environnement extrême de Mars.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Témoignages -->
+<section class="testimonials">
+    <h2>Nos visiteurs en parlent 🌟</h2>
+    <div class="testimonial-list">
+        <div class="testimonial">
+            <p>“L’expérience de ma vie ! Voir le lever du soleil depuis Valles Marineris, inoubliable.”</p>
+            <span>- Elon M.</span>
+        </div>
+        <div class="testimonial">
+            <p>“La tente meublée était super confortable ! Le chauffage au sol martien, une vraie innovation.”</p>
+            <span>- Samantha C.</span>
+        </div>
+        <div class="testimonial">
+            <p>“J'ai acheté un terrain nu, je construis ma base autonome ! Merci SpaceCampMars.”</p>
+            <span>- Jean-Michel A.</span>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact">
+    <h2>Prenez contact avec nous 🛰️</h2>
+    <p>Vous souhaitez réserver ou en savoir plus sur nos options d’habitat martien ? Contactez-nous dès maintenant !</p>
+    <a href="{{ path('contact') }}" class="btn">Nous Contacter</a>
+</section>
+
 {% endblock %}
