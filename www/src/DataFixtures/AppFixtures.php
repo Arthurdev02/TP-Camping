@@ -2,20 +2,20 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
-use App\Entity\Hebergement;
-use App\Entity\Reservation;
-use App\Entity\Type;
+use App\Entity\Accomodation;
+use App\Entity\Booking;
 use App\Entity\Equipement;
+use App\Entity\Season;
 use App\Entity\Tarification;
-use App\Entity\Saison;
-use App\Entity\Statut;
-use Doctrine\Persistence\ObjectManager;
+use App\Entity\Type;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    //propriété pour encoder le mdp 
     private $encoder;
 
     public function __construct(UserPasswordHasherInterface $encoder)
@@ -25,174 +25,292 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $this->loadUser($manager);
-        $this->loadType($manager);
-        $this->loadStatut($manager);
-        $this->loadHebergements($manager);
-        $this->loadEquipements($manager);
-        $this->loadSaison($manager);
-        $this->loadTarification($manager);
-        $this->loadReservations($manager);
-        
+        $this->LoadUsers($manager);
+        $this->LoadEquipements($manager);
+        $this->LoadSeasons($manager);
+        $this->LoadTypes($manager);
+        $this->LoadAccomodations($manager);
+        $this->LoadTarifications($manager);
+        $this->LoadBookings($manager);
+
         $manager->flush();
     }
 
-    public function loadUser(ObjectManager $manager): void
+    /**
+     * méthode pour générer des utilisateurs
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadUsers(ObjectManager $manager): void
     {
-        $users = [
+        //on crée un tableau avec les infos des users
+        $array_user = [
             [
-                'email' => 'admin@admin.com',
-                'password' => 'admin',
+                'email' => "admin@admin.com",
+                'password' => "admin",
                 'roles' => ['ROLE_ADMIN'],
-                'numero_telephone' => '0606060606',
-                'nom' => 'Administrateur',
-                'prenom' => 'Zac'
+                'username' => 'administrateur'
             ],
             [
-                'email' => 'user@user.com',
-                'password' => 'user',
+                'email' => "user@user.com",
+                'password' => "user",
                 'roles' => ['ROLE_USER'],
-                'numero_telephone' => '0707070707',
-                'nom' => 'Utilisateur',
-                'prenom' => 'Caz'
+                'username' => 'utilisateur'
             ]
         ];
-
-        foreach ($users as $value) {
+        //on va boucler sur le tableau pour créer des users
+        foreach ($array_user as $key => $value) {
+            //on instancie un user
             $user = new User();
             $user->setEmail($value['email']);
             $user->setPassword($this->encoder->hashPassword($user, $value['password']));
             $user->setRoles($value['roles']);
-            $user->setNumeroTelephone($value['numero_telephone']);
-            $user->setNom($value['nom']);
-            $user->setPrenom($value['prenom']);
+            $user->setUsername($value['username']);
+            //on persiste les données
             $manager->persist($user);
-        }
+
+            $this->addReference('user_'.$key + 1, $user);
+        } //on crée un tableau avec les infos des users
     }
 
-    public function loadType(ObjectManager $manager): void
+    /**
+     * méthode pour générer les types de logements
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadTypes(ObjectManager $manager): void
     {
-        $types = [
-            ['nom' => 'Emplacement nu'],
-            ['nom' => 'Tente meublée'],
-            ['nom' => 'Mobil-home']
+        //on crée un tableau avec les types de logements
+        $array_type = [
+            "Mobil-home",
+            "Tente équipée",
+            "Emplacement de camping"
         ];
-
-        foreach ($types as $value) {
+        //on va boucler sur le tableau pour créer des types de logements
+        foreach ($array_type as $key => $value) {
+            //on instancie un user
             $type = new Type();
-            $type->setNom($value['nom']);
+            $type->setLabel($value);
+            //on persiste les données
             $manager->persist($type);
-        }
+
+            $this->addReference('type_'.$key + 1, $type);
+        } //on crée un tableau avec les infos des types de logements
+        
     }
 
-    public function loadStatut(ObjectManager $manager): void
+    /**
+     * méthode pour générer les types de logements
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadEquipements(ObjectManager $manager): void
     {
-        $statuts = [
-            ['id' => 1, 'nom' => 'Nettoyage'],
-            ['id' => 2, 'nom' => 'Occupée'],
-            ['id' => 3, 'nom' => 'Disponible'],
-            ['id' => 4, 'nom' => 'Réservée'],
+        //on crée un tableau avec les équipements
+        $array_equipements = [
+            "Réfrigérateur",
+            "Plaques de cuisson",
+            "Micro-ondes",
+            "Cafetière",
+            "Bouilloire",
+            "Vaisselle et couverts",
+            "Lave-vaisselle",
+            "Télévision",
+            "Climatisation",
+            "Chauffage",
+            "Douche",
+            "Lavabo",
+            "Toilettes",
+            "Sèche-cheveux",
+            "Wi-Fi",
         ];
-
-        foreach ($statuts as $value) {
-            $statut = new Statut();
-            $statut->setNom($value['nom']);
-            $manager->persist($statut);
-        }
-    }
-
-    public function loadEquipements(ObjectManager $manager): void
-    {
-        $equipements = [
-            ['nom' => 'Table'],
-            ['nom' => 'Chaise'],
-            ['nom' => 'Lit']
-        ];
-
-        foreach ($equipements as $value) {
+        //on va boucler sur le tableau pour créer des équipements
+        foreach ($array_equipements as $key => $value) {
+            //on instancie un user
             $equipement = new Equipement();
-            $equipement->setNom($value['nom']);
+            $equipement->setLabel($value);
+            //on persiste les données
             $manager->persist($equipement);
-        }
+
+            $this->addReference('equipement_'.$key + 1, $equipement);
+        } //on crée un tableau avec les infos des équipements
+
+        
     }
 
-    public function loadHebergements(ObjectManager $manager): void
+    /**
+     * méthode pour générer les saisons
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadSeasons(ObjectManager $manager): void
     {
-        $hebergements = [
-            ['capacite' => 6, 'superficie' => 30.0, 'image' => 'emplacement.jpg', 'nom' => 'terrain nu'],
-            ['capacite' => 4, 'superficie' => 20.0, 'image' => 'tente.jpg', 'nom' => 'tente meublée'],
-            ['capacite' => 6, 'superficie' => 35.0, 'image' => 'mobilhome.jpg', 'nom' => 'mobil-home']
+        //on crée un tableau avec les équipements
+        $array_season = [
+            [
+                'label' => "Haute saison",
+                'date_start' => new \DateTime('2025-06-01'), // 1er juin 2025
+                'date_end' => new \DateTime('2025-08-31')   // 31 août 2025
+            ],
+            [
+                'label' => "Basse saison",
+                'date_start' => new \DateTime('2025-09-01'), // 1er septembre 2025
+                'date_end' => new \DateTime('2025-05-31')   // 31 mai 2026
+            ]
         ];
+        //on va boucler sur le tableau pour créer des saisons
+        foreach ($array_season as $key => $value) {
+            //on instancie une saison
+            $season = new Season();
+            $season->setLabel($value['label']);
+            $season->setDateStart($value['date_start']);
+            $season->setDateEnd($value['date_end']);
+            //on persiste les données
+            $manager->persist($season);
 
-        foreach ($hebergements as $value) {
-            $hebergement = new Hebergement();
-            $hebergement->setNom($value['nom']);
-            $hebergement->setCapacite($value['capacite']);
-            $hebergement->setSuperficie($value['superficie']);
-            $hebergement->setImage($value['image']);
-            $manager->persist($hebergement);
-        }
+            $this->addReference('season_' .$key + 1, $season);
+        } //on crée un tableau avec les infos des saisons
     }
 
-    public function loadSaison(ObjectManager $manager): void
+    /**
+     * méthode pour générer les tarif
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadTarifications(ObjectManager $manager): void
     {
-        $saisons = [
-            ['nom' => 'Haute saison', 'date_debut' => '2024-06-01', 'date_fin' => '2024-09-30'],
-            ['nom' => 'Basse saison', 'date_debut' => '2024-04-01', 'date_fin' => '2024-05-31']
+        //on crée un tableau avec les tarifs
+        $array_tarification = [
+            [
+                'season_id' => 1,
+                'accomodation_id' => 1,
+                'price' => 50
+            ],
+            [
+                'season_id' => 2,
+                'accomodation_id' => 2,
+                'price' => 30
+            ]
         ];
-
-        foreach ($saisons as $value) {
-            $saison = new Saison();
-            $saison->setNom($value['nom']);
-            $saison->setDateDebut(new \DateTime($value['date_debut']));
-            $saison->setDateFin(new \DateTime($value['date_fin']));
-            $manager->persist($saison);
-        }
-    }
-
-    public function loadReservations(ObjectManager $manager): void
-    {
-        $user = $manager->getRepository(User::class)->findOneBy(['email' => 'user@user.com']);
-        $hebergement = $manager->getRepository(Hebergement::class)->find(3);
-        $statut = $manager->getRepository(Statut::class)->find(1);
-
-        if (!$user || !$hebergement || !$statut) {
-            return;
-        }
-
-        $reservation = new Reservation();
-        $reservation->setUser($user);
-        $reservation->setHebergement($hebergement);
-        $reservation->setStatut($statut);
-        $reservation->setDateArrive(new \DateTime('2024-06-15'));
-        $reservation->setDateDepart(new \DateTime('2024-06-20'));
-        $reservation->setNombrePersonne(4);
-
-        $manager->persist($reservation);
-    }
-
-    public function loadTarification(ObjectManager $manager): void
-    {
-        $tarifications = [
-            ['id_hebergement' => 1, 'id_saison' => 1, 'tarif' => 50.00, 'date_debut' => '2024-06-01', 'date_fin' => '2024-09-30'],
-            ['id_hebergement' => 2, 'id_saison' => 2, 'tarif' => 30.00, 'date_debut' => '2024-04-01', 'date_fin' => '2024-05-31']
-        ];
-
-        foreach ($tarifications as $value) {
-            $hebergement = $manager->getRepository(Hebergement::class)->find($value['id_hebergement']);
-            $saison = $manager->getRepository(Saison::class)->find($value['id_saison']);
-
-            if (!$hebergement || !$saison) {
-                continue;
-            }
-
+        //on va boucler sur le tableau pour créer des équipements
+        foreach ($array_tarification as $key => $value) {
+            //on instancie une saison
             $tarification = new Tarification();
-            $tarification->setHebergement($hebergement);
-            $tarification->setSaison($saison);
-            $tarification->setTarif($value['tarif']);
-            $tarification->setDateDebut(new \DateTime($value['date_debut']));
-            $tarification->setDateFin(new \DateTime($value['date_fin']));
+            $tarification->setPrice($value['price']);
+
+            // Gestion des relations OneToMany ou ManyToOne pour Accomodation
+            $tarification->setAccomodations($this->getReference('accomodation_' . $value['accomodation_id'], Accomodation::class));
+
+            // Gestion des relations OneToMany ou ManyToOne pour Season
+            $tarification->setSeason($this->getReference('season_' . $value['season_id'], Season::class));
+
+            //on persiste les données
             $manager->persist($tarification);
-        }
+        } //on crée un tableau avec les infos des saisons
     }
+
+    /**
+     * méthode pour générer les annonces
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadAccomodations(ObjectManager $manager): void
+    {
+        //on crée un tableau avec les équipements
+        $array_accomodation = [
+            [
+                'title' => "Petit Mobil-home",
+                'description' => "Un mobil-home confortable et tout équipé, offrant un espace convivial avec cuisine, salle de bain, chambres et terrasse, idéal pour un séjour en pleine nature.",
+                'size' => 5,
+                'nbre_bedrooms' => 2,
+                'is_avaliable' => true,
+                'image_path' => "mobil-home.jpg",
+                'type_accomodation_id' => 1,
+                'equipement' => [1,2,3]
+            ],
+            [
+                'title' => "Tente équipée",
+                'description' => "Une tente équipée alliant confort et nature, avec lits, espace cuisine et coin repas, pour une expérience de camping authentique sans renoncer au bien-être.",
+                'size' => 3,
+                'nbre_bedrooms' => 1,
+                'is_avaliable' => false,
+                'image_path' => "tente-equipee.jpg",
+                'type_accomodation_id' => 2,
+                'equipement' => [4,5,6]
+            ]
+        ];
+        //on va boucler sur le tableau pour créer des annonces
+        foreach ($array_accomodation as $key => $value) {
+            //on instancie une saison
+            $accomodation = new Accomodation();
+            $accomodation->setTitle($value['title']);
+            $accomodation->setDescription($value['description']);
+            $accomodation->setSize($value['size']);
+            $accomodation->setNbreBedrooms($value['nbre_bedrooms']);
+            $accomodation->setisAvaliable($value['is_avaliable']);
+            $accomodation->setImagePath($value['image_path']);
+
+            // Gestion des relations OneToMany ou ManyToOne pour Type
+            $accomodation->setTypeAccomodation($this->getReference('type_' . $value['type_accomodation_id'], Type::class));
+            
+            // Gestion des relations ManyToMany pour Equipement
+            foreach($value['equipement'] as $equipement) {
+                $accomodation->addEquipement($this->getReference('equipement_' .$equipement, Equipement::class));
+            }
+            //on persiste les données
+            $manager->persist($accomodation);
+
+            $this->addReference('accomodation_' .$key + 1, $accomodation);
+        
+        } //on crée un tableau avec les infos des annonces
+    }
+
+    /**
+     * méthode pour générer les réservations
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function LoadBookings(ObjectManager $manager): void
+    {
+        //on crée un tableau avec les tarifs
+        $array_booking = [
+            [
+                'user_id' => 1,
+                'accomodation_id' => 1,
+                'date_start' => new \DateTime("2025-06-22"),
+                'date_end' => new \DateTime("2025-06-01"),
+                'nbre_adult' => '2',
+                'nbre_children' => '0'
+            ],
+            [
+                'user_id' => 2,
+                'accomodation_id' => 2,
+                'date_start' => new \DateTime("2025-07-22"),
+                'date_end' => new \DateTime("2025-05-01"),
+                'nbre_adult' => '1',
+                'nbre_children' => '1'
+            ]
+        ];
+        //on va boucler sur le tableau pour créer des équipements
+        foreach ($array_booking as $key => $value) {
+            //on instancie une saison
+            $booking = new Booking();
+            $booking->setDateStart($value['date_start']);
+            $booking->setDateEnd($value['date_end']);
+            $booking->setNbreAdults($value['nbre_adult']);
+            $booking->setNbreChildrens($value['nbre_children']);
+
+            // Gestion des relations OneToMany ou ManyToOne pour User
+            $booking->setUsers($this->getReference('user_' . $value['user_id'], User::class));
+
+            // Gestion des relations OneToMany ou ManyToOne pour Accomodation
+            $booking->setAccomodation($this->getReference('accomodation_' . $value['accomodation_id'], Accomodation::class));
+
+            //on persiste les données
+            $manager->persist($booking);
+        } //on crée un tableau avec les infos des saisons
+    }
+
+
+
 }

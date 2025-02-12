@@ -1,13 +1,11 @@
 <?php
-
+ 
 namespace App\Entity;
-
+ 
 use App\Repository\TarificationRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
+ 
 #[ORM\Entity(repositoryClass: TarificationRepository::class)]
 class Tarification
 {
@@ -15,104 +13,55 @@ class Tarification
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\ManyToOne(inversedBy: 'tarifications')]
-    private ?Hebergement $hebergements = null;
-
-    /**
-     * @var Collection<int, Saison>
-     */
-    #[ORM\ManyToMany(targetEntity: Saison::class, inversedBy: 'tarifications')]
-    private Collection $Saisons;
-
+ 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $Tarif = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_debut = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_fin = null;
-
-    public function __construct()
-    {
-        $this->Saisons = new ArrayCollection();
-    }
-
+    private ?string $price = null;
+ 
+    #[ORM\ManyToOne(inversedBy: 'tarifications')]
+    private ?Season $season = null;
+ 
+    #[ORM\ManyToOne(inversedBy: 'tarifications')]
+    private ?Accomodation $accomodation = null;
+ 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getHebergements(): ?Hebergement
+ 
+    public function getPrice(): ?string
     {
-        return $this->hebergements;
+        return $this->price;
     }
-
-    public function setHebergements(?Hebergement $hebergements): static
+ 
+    public function setPrice(string $price): static
     {
-        $this->hebergements = $hebergements;
-
+        $this->price = $price;
+ 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Saison>
-     */
-    public function getSaisons(): Collection
+ 
+    public function getSeason(): ?Season
     {
-        return $this->Saisons;
+        return $this->season;
     }
-
-    public function addSaison(Saison $saison): static
+ 
+    public function setSeason(?Season $season): static
     {
-        if (!$this->Saisons->contains($saison)) {
-            $this->Saisons->add($saison);
-        }
-
+        $this->season = $season;
+ 
         return $this;
     }
-
-    public function removeSaison(Saison $saison): static
+ 
+    public function getAccomodations(): ?Accomodation
     {
-        $this->Saisons->removeElement($saison);
-
-        return $this;
+        return $this->accomodation;
     }
-
-    public function getTarif(): ?string
+ 
+    public function setAccomodations(?Accomodation $accomodation): static
     {
-        return $this->Tarif;
-    }
-
-    public function setTarif(string $Tarif): static
-    {
-        $this->Tarif = $Tarif;
-
-        return $this;
-    }
-
-    public function getDateDebut(): ?\DateTimeInterface
-    {
-        return $this->date_debut;
-    }
-
-    public function setDateDebut(\DateTimeInterface $date_debut): static
-    {
-        $this->date_debut = $date_debut;
-
-        return $this;
-    }
-
-    public function getDateFin(): ?\DateTimeInterface
-    {
-        return $this->date_fin;
-    }
-
-    public function setDateFin(\DateTimeInterface $date_fin): static
-    {
-        $this->date_fin = $date_fin;
-
+        $this->accomodation = $accomodation;
+ 
         return $this;
     }
 }
+ 

@@ -10,6 +10,7 @@
             <li><a href="{{ path('app_user_index') }}" class="{% if app.request.attributes.get('_route') == 'profile' %}active{% endif %}">Profil</a></li>
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
         {% else %}
+        
         {% endif %}
     </ul>
 </nav>

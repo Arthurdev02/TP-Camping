@@ -16,17 +16,17 @@ class Equipement
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $label = null;
 
     /**
-     * @var Collection<int, Hebergement>
+     * @var Collection<int, Accomodation>
      */
-    #[ORM\OneToMany(targetEntity: Hebergement::class, mappedBy: 'Equipements')]
-    private Collection $hebergements;
+    #[ORM\ManyToMany(targetEntity: Accomodation::class, mappedBy: 'Equipements')]
+    private Collection $accomodations;
 
     public function __construct()
     {
-        $this->hebergements = new ArrayCollection();
+        $this->accomodations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -34,43 +34,40 @@ class Equipement
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getLabel(): ?string
     {
-        return $this->nom;
+        return $this->label;
     }
 
-    public function setNom(string $nom): static
+    public function setLabel(string $label): static
     {
-        $this->nom = $nom;
+        $this->label = $label;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, Hebergement>
+     * @return Collection<int, Accomodation>
      */
-    public function getHebergements(): Collection
+    public function getAccomodations(): Collection
     {
-        return $this->hebergements;
+        return $this->accomodations;
     }
 
-    public function addHebergement(Hebergement $hebergement): static
+    public function addAccomodation(Accomodation $accomodation): static
     {
-        if (!$this->hebergements->contains($hebergement)) {
-            $this->hebergements->add($hebergement);
-            $hebergement->setEquipements($this);
+        if (!$this->accomodations->contains($accomodation)) {
+            $this->accomodations->add($accomodation);
+            $accomodation->addEquipement($this);
         }
 
         return $this;
     }
 
-    public function removeHebergement(Hebergement $hebergement): static
+    public function removeAccomodation(Accomodation $accomodation): static
     {
-        if ($this->hebergements->removeElement($hebergement)) {
-            // set the owning side to null (unless already changed)
-            if ($hebergement->getEquipements() === $this) {
-                $hebergement->setEquipements(null);
-            }
+        if ($this->accomodations->removeElement($accomodation)) {
+            $accomodation->removeEquipement($this);
         }
 
         return $this;

@@ -6,13 +6,11 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -35,26 +33,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $prenom = null;
+    /**
+     * @var Collection<int, Booking>
+     */
+    #[ORM\OneToMany(targetEntity: Booking::class, mappedBy: 'users')]
+    private Collection $bookings;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
-
-    #[ORM\Column]
-    private ?int $numero_telephone = null;
-
-    /**
-     * @var Collection<int, Reservation>
-     */
-    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'Users')]
-    private Collection $reservations;
+    private ?string $username = null;
 
     public function __construct()
     {
-        $this->reservations = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -131,70 +122,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): static
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getNumeroTelephone(): ?int
-    {
-        return $this->numero_telephone;
-    }
-
-    public function setNumeroTelephone(int $numero_telephone): static
-    {
-        $this->numero_telephone = $numero_telephone;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Reservation>
+     * @return Collection<int, Booking>
      */
-    public function getReservations(): Collection
+    public function getBookings(): Collection
     {
-        return $this->reservations;
+        return $this->bookings;
     }
 
-    public function addReservation(Reservation $reservation): static
+    public function addBooking(Booking $booking): static
     {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations->add($reservation);
-            $reservation->setUsers($this);
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings->add($booking);
+            $booking->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeReservation(Reservation $reservation): static
+    public function removeBooking(Booking $booking): static
     {
-        if ($this->reservations->removeElement($reservation)) {
+        if ($this->bookings->removeElement($booking)) {
             // set the owning side to null (unless already changed)
-            if ($reservation->getUsers() === $this) {
-                $reservation->setUsers(null);
+            if ($booking->getUsers() === $this) {
+                $booking->setUsers(null);
             }
         }
 
         return $this;
     }
 
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): static
+    {
+        $this->username = $username;
+
+        return $this;
+    }
 }

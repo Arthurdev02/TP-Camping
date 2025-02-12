@@ -15,18 +15,25 @@ class Type
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @var Collection<int, Accomodation>
+     */
+    #[ORM\OneToMany(targetEntity: Accomodation::class, mappedBy: 'Types')]
+    private Collection $accomodations;
+
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $label = null;
 
     /**
-     * @var Collection<int, Hebergement>
+     * @var Collection<int, Accomodation>
      */
-    #[ORM\OneToMany(targetEntity: Hebergement::class, mappedBy: 'Types')]
-    private Collection $hebergements;
+    #[ORM\OneToMany(targetEntity: Accomodation::class, mappedBy: 'types')]
+    private Collection $Accomodations;
 
     public function __construct()
     {
-        $this->hebergements = new ArrayCollection();
+        $this->accomodations = new ArrayCollection();
+        $this->Accomodations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -34,44 +41,44 @@ class Type
         return $this->id;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Hebergement>
+     * @return Collection<int, Accomodation>
      */
-    public function getHebergements(): Collection
+    public function getAccomodations(): Collection
     {
-        return $this->hebergements;
+        return $this->accomodations;
     }
 
-    public function addHebergement(Hebergement $hebergement): static
+    public function addAccomodation(Accomodation $accomodation): static
     {
-        if (!$this->hebergements->contains($hebergement)) {
-            $this->hebergements->add($hebergement);
-            $hebergement->setTypes($this);
+        if (!$this->accomodations->contains($accomodation)) {
+            $this->accomodations->add($accomodation);
+            $accomodation->setTypes($this);
         }
 
         return $this;
     }
 
-    public function removeHebergement(Hebergement $hebergement): static
+    public function removeAccomodation(Accomodation $accomodation): static
     {
-        if ($this->hebergements->removeElement($hebergement)) {
+        if ($this->accomodations->removeElement($accomodation)) {
             // set the owning side to null (unless already changed)
-            if ($hebergement->getTypes() === $this) {
-                $hebergement->setTypes(null);
+            if ($accomodation->getTypes() === $this) {
+                $accomodation->setTypes(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    public function setLabel(string $label): static
+    {
+        $this->label = $label;
 
         return $this;
     }
