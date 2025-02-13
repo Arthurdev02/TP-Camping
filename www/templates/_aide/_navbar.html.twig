@@ -1,8 +1,14 @@
 <nav>
     <ul>
-        <li><a href="{{ path('home') }}" class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}">Accueil</a></li>
-        <li><a href="{{ path('reservation') }}" class="{% if app.request.attributes.get('_route') == 'reservation' %}active{% endif %}">Réservation</a></li>
-        <li><a href="{{ path('listes') }}" class="{% if app.request.attributes.get('_route') == 'listes' %}active{% endif %}">Nos habitats</a></li>
+<li>
+	<a href="{{ path('app_home') }}" class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}">Accueil</a>
+</li>
+
+<li>
+	<a href="{{ path('app_booking_index') }}" class="{% if app.request.attributes.get('_route') == 'reservation' %}active{% endif %}">Réservation</a>
+</li>
+
+
         <li><a href="{{ path('app_login') }}"> Login</a></li>
 
 

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ title }}!
+		</h1>
+		{% for booking in bookings %}
+			<div class="card-booking">
+				<h2 class booking-title>{{ booking.title }}</h2>
+				<p class="booking-date">{{ booking.startDate|date('d/m/Y') }}
+					-
+					{{ booking.endDate|date('d/m/Y') }}
+				</p>
+
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
