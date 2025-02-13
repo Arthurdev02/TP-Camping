@@ -26,8 +26,8 @@ class Accomodation
     private ?int $nbreBedrooms = null;
 
     #[ORM\Column]
-    private ?bool $isAvaliable = null;
-
+    private ?bool $isAvaliable = null;   
+    
     #[ORM\Column(length: 255)]
     private ?string $imagePath = null;
 
@@ -182,18 +182,21 @@ class Accomodation
     /**
      * Get the value of isAvaliable
      */
-    public function isIsAvaliable(): ?bool
+    public function isAvaliable(): ?bool
     {
         return $this->isAvaliable;
     }
+    
+    public function setAvailable(?bool $isAvaliable): self    {
+        $this->isAvaliable = $isAvaliable;
+        return $this;
+    }
 
     /**
-     * Set the value of isAvaliable
+     * Get the value of isAvaliable
      */
-    public function setIsAvaliable(?bool $isAvaliable): self
+    public function getIsAvaliable(): ?bool
     {
-        $this->isAvaliable = $isAvaliable;
-
-        return $this;
+        return $this->isAvaliable;
     }
 }

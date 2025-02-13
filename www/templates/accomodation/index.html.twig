@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accomodation index{% endblock %}
+
+{% block body %}
+    <h1>Accomodation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>NbreBedrooms</th>
+                <th>IsAvaliable</th>
+                <th>ImagePath</th>
+                <th>Size</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accomodation in accomodations %}
+            <tr>
+                <td>{{ accomodation.id }}</td>
+                <td>{{ accomodation.title }}</td>
+                <td>{{ accomodation.description }}</td>
+                <td>{{ accomodation.nbreBedrooms }}</td>
+                <td>{{ accomodation.isAvaliable ? 'Yes' : 'No' }}</td>
+                <td>{{ accomodation.imagePath }}</td>
+                <td>{{ accomodation.Size }}</td>
+                <td>
+                    <a href="{{ path('app_accomodation_show', {'id': accomodation.id}) }}">show</a>
+                    <a href="{{ path('app_accomodation_edit', {'id': accomodation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_accomodation_new') }}">Create new</a>
+{% endblock %}

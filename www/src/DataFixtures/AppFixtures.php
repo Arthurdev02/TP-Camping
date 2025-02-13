@@ -224,7 +224,7 @@ class AppFixtures extends Fixture
                 'size' => 5,
                 'nbre_bedrooms' => 2,
                 'is_avaliable' => true,
-                'image_path' => "mobil-home.jpg",
+                'image_path' => "mobilehome.jpeg",
                 'type_accomodation_id' => 1,
                 'equipement' => [1,2,3]
             ],
@@ -234,7 +234,7 @@ class AppFixtures extends Fixture
                 'size' => 3,
                 'nbre_bedrooms' => 1,
                 'is_avaliable' => false,
-                'image_path' => "tente-equipee.jpg",
+                'image_path' => "tente.jpeg",
                 'type_accomodation_id' => 2,
                 'equipement' => [4,5,6]
             ]
@@ -247,7 +247,7 @@ class AppFixtures extends Fixture
             $accomodation->setDescription($value['description']);
             $accomodation->setSize($value['size']);
             $accomodation->setNbreBedrooms($value['nbre_bedrooms']);
-            $accomodation->setisAvaliable($value['is_avaliable']);
+            $accomodation->setAvailable($value['is_avaliable']);
             $accomodation->setImagePath($value['image_path']);
 
             // Gestion des relations OneToMany ou ManyToOne pour Type

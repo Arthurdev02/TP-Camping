@@ -4,22 +4,18 @@
 {% endblock %}
 
 {% block body %}
+    <div class ="acceuil h1" >
+        <h1>bonjour {{ username }}, bienvenue sur {{ title }}</h1>
+    </div>
+
+    <div class ="card">
+        <h2 class="card-Titre"> Nous vous proposons: {{title_accommodation}}</h2>
+        <h3 class="card-description"> Description du bien: {{description}}</h3>
+        <h3 class="card-prix"> Prix: {{price_tarification}} € pour une nuit</h3>
+        <h3 class="card-capacite"> Capacité: {{size}} personnes</h3>
+        <a href="{{ path('app_accomodation_show', {'id': accomodation_id}) }}" class="btn btn-primary">Voir plus</a>
+    </div>
 
 
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ title }}!
-		</h1>
-		{% for booking in bookings %}
-			<div class="card-booking">
-				<h2 class booking-title>{{ booking.title }}</h2>
-				<p class="booking-date">{{ booking.startDate|date('d/m/Y') }}
-					-
-					{{ booking.endDate|date('d/m/Y') }}
-				</p>
 
-			</div>
-		{% endfor %}
-	</div>
 {% endblock %}
-
