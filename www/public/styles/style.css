@@ -187,41 +187,6 @@ main {
     color: #ffcc00;
 }
 
-/* 📂 Dropdown User */
-.dropdown-menu {
-    display: none;
-    /* Caché par défaut */
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background: rgba(22, 33, 62, 0.9);
-    border: 1px solid #0f3460;
-    border-radius: 5px;
-    width: 200px;
-        padding: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 212, 255, 0.3);
-        text-align: left;
-}
-
-/* ✨ Effet d’apparition du menu */
-.nav-item:hover .dropdown-menu {
-    display: block;
-}
-
-/* 🛠️ Style des éléments du menu */
-.dropdown-menu .dropdown-item {
-    display: block;
-    color: #00d4ff;
-        font-size: 1rem;
-        padding: 8px;
-        transition: 0.3s;
-        text-decoration: none;
-}
-
-.dropdown-menu .dropdown-item:hover {
-    background: #0f3460;
-    color: #ffcc00;
-}
 
 /* 📱 Responsive */
 @media screen and (max-width: 768px) {
@@ -229,8 +194,8 @@ main {
         padding: 8px 10px;
     }
 
-                                .navbar-brand img {
-                                    height: 35px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .navbar-brand img {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     height: 35px;
                                 }
 
                                 .site-title {
@@ -300,37 +265,6 @@ main {
 .btn-primary:hover {
     background: #0f3460;
     color: #00d4ff;
-}
-.table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: #16213e;
-    color: #ffffff;
-    border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-}
-
-.table th,
-.table td {
-    padding: 15px;
-    border: 1px solid #0f3460;
-    text-align: left;
-    font-size: 1.2rem;
-}
-
-.table th {
-    background: #1a1a2e;
-    color: #00d4ff;
-}
-
-.table tr:nth-child(even) {
-    background: #0f3460;
-}
-
-.table tr:hover {
-    background: #00d4ff;
-    color: #16213e;
 }
 
 a {
@@ -536,6 +470,121 @@ ul li {
     color: #fff;
 }
 
+/* Styles pour la liste des utilisateurs */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-users {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-users thead {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.table-users th,
+.table-users td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-users th {
+    text-transform: uppercase;
+}
+
+.table-users tr:hover {
+    background-color: #f1f1f1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #888;
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-modifier {
+    background-color: #28a745;
+}
+
+.btn-modifier:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+
+    .table-users th,
+    .table-users td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Styles pour la navigation */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 0;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ddd;
+}
+
+/* Menu Administrateur */
+.admin-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-user {
+    font-size: 1.5rem;
+    color: #fff;
+}
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -562,17 +611,305 @@ ul li {
 .dropdown-item:hover {
     background-color: #444;
 }
-
-/* Ajout d'une meilleure gestion responsive */
 @media (max-width: 768px) {
     .dropdown-menu {
         position: static;
         display: block;
         background-color: transparent;
         box-shadow: none;
-    }
-
+    
     .dropdown-item {
         padding: 8px;
+    }
+}
+}
+
+/* Thème CSS pour un site de camping - Nature & Aventure */
+
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f0e1;
+    /* Beige clair naturel */
+    color: #2d3e50;
+    /* Bleu-gris profond */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard */
+.Dashboard {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #3a5d25;
+    /* Vert nature */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2a4417;
+    font-weight: bold;
+}
+
+.list-group {
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-group-item {
+    background-color: #d4e157;
+    /* Vert clair */
+    color: #2a4417;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-bottom: 1px solid #b0c13f;
+    transition: background 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #b0c13f;
+    /* Vert plus foncé */
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #2a4417;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.list-group-item a:hover {
+    color: #f4a261;
+    /* Orange feu de camp */
+}
+
+/* Pied de page */
+.footer {
+    background-color: #2a4417;
+    /* Vert forêt */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hero,
+.container,
+.footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Dashboard {
+        font-size: 2rem;
+    }
+
+    .text-center {
+        font-size: 1.2rem;
+    }
+
+    .list-group {
+        max-width: 100%;
+    }
+}
+
+/* Thème CSS pour un site de camping - Nature & Aventure */
+
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f0e1;
+    /* Beige clair naturel */
+    color: #2d3e50;
+    /* Bleu-gris profond */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard */
+.Dashboard {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #3a5d25;
+    /* Vert nature */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2a4417;
+    font-weight: bold;
+}
+
+.list-group {
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-group-item {
+    background-color: #d4e157;
+    /* Vert clair */
+    color: #2a4417;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-bottom: 1px solid #b0c13f;
+    transition: background 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #b0c13f;
+    /* Vert plus foncé */
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #2a4417;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.list-group-item a:hover {
+    color: #f4a261;
+    /* Orange feu de camp */
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #3a5d25;
+    /* Vert foncé */
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Liens actions */
+.table a {
+    text-decoration: none;
+    color: #3a5d25;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.table a:hover {
+    background-color: #f4a261;
+    color: #fff;
+}
+
+/* Pied de page */
+.footer {
+    background-color: #2a4417;
+    /* Vert forêt */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hero,
+.container,
+.footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Dashboard {
+        font-size: 2rem;
+    }
+
+    .text-center {
+        font-size: 1.2rem;
+    }
+
+    .list-group {
+        max-width: 100%;
+    }
+
+    .table th,
+    .table td {
+        font-size: 14px;
+        padding: 10px;
     }
 }

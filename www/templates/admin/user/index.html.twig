@@ -1,41 +1,48 @@
-{% extends 'base.html.twig' %}
+    {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Utilisateurs
-{% endblock %}
-
-
-{% block body %}
-<div class="container">
-<h1>📋 Liste des Utilisateurs</h1>
+    {% block title %}Liste des Utilisateurs
+    {% endblock %}
 
 
-<table class="table-users">
-	<thead></thead>
+    {% block body %}
+    <div class="container">
+    <h1>📋 Liste des Utilisateurs</h1>
 
-            <tr>
-<th>🆔 ID</th>
-<th>📧 Email</th>
-<th>🔑 Rôles</th>
-<th>🔒 Mot de passe</th>
 
-<th>⚙️ Actions</th>
+    <table class="table-users">
+        <thead></thead>
 
-            </tr>
-        </thead>
-        <tbody>
-{% for user in users %}
-		<td>{{ user.id }}</td>
-		<td>{{ user.email }}</td>
-<td>{{ user.roles ? user.roles|json_encode : 'Aucun' }}</td>
-<td>••••••••</td>
+                <tr>
+    <th>🆔 ID</th>
+    <th>📧 Email</th>
+    <th>🔑 Rôles</th>
+    <th>🔒 Mot de passe</th>
+    <th>⚙️ Actions</th>
 
-<td>
-	<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-modifier">✏️ Modifier</a>
-</td></tr>{% else %}<tr>
-<td colspan="5" class="text-center text-muted">🚀 Aucun utilisateur trouvé.</td></tr>{% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+    {% for user in users %}
 
-        </tbody>
-    </table>
-</div>
+        
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+    <td>{{ user.roles ? user.roles|json_encode : 'Aucun' }}</td>
+    <td>••••••••</td>
 
-{% endblock %}
+    <td>
+        <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="btn btn-modifier">✏️ Modifier</a>
+    </td></tr>{% else %}<tr>
+    <td colspan="5" class="text-center text-muted">🚀 Aucun utilisateur trouvé.</td></tr>
+    <td>
+        <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="btn btn-modifier">✏️ Modifier</a>
+
+    </td>
+
+
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% endblock %}

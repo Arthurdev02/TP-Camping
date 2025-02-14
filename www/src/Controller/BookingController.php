@@ -17,9 +17,13 @@ final class BookingController extends AbstractController
     #[Route(name: 'app_booking_index', methods: ['GET'])]
     public function index(BookingRepository $bookingRepository): Response
     {
-        return $this->render('booking/index.html.twig', [
-            'bookings' => $bookingRepository->findAll(),
-        ]);
+        $bookings = $bookingRepository->findAll();
+        $tarifications = $tarificationRepository->findAll(); // ✅ Récupère toutes les tarifications
+
+        return $this->render('/booking/index.html.twig', [
+            'bookings' => $bookings,
+            'tarifications' => $tarifications, // ✅ Transmet bien cette variable à Twig
+              ]);
     }
 
     #[Route('/new', name: 'app_booking_new', methods: ['GET', 'POST'])]

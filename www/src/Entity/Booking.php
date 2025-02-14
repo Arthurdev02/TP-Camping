@@ -108,4 +108,23 @@ class Booking
 
         return $this;
     }
+    public function getTarification(Collection $tarifications): ?Tarification
+    {
+        $season = 'Basse';
+        $month = (int) $this->getDateStart()->format('m');
+
+        if (in_array($month, [6, 7, 8])) {
+            $season = 'Haute';
+        } elseif (in_array($month, [4, 5, 9, 10])) {
+            $season = 'Moyenne';
+        }
+
+        foreach ($tarifications as $tarification) {
+            if ($tarification->getSeason()->getName() === $season) {
+                return $tarification;
+            }
+        }
+
+        return null;
+    }
 }

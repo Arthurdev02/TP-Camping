@@ -3,41 +3,47 @@
 {% block title %}Booking index{% endblock %}
 
 {% block body %}
+
     <h1>Booking index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Date_start</th>
-                <th>Date_end</th>
-                <th>Nbre_adults</th>
-                <th>Nbre_childrens</th>
-                <th>actions</th>
+                <th>Email de l'utilisateur</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Nombre d'adultes</th>
+                <th>Nombre d'enfants</th>
+                <th>Prix par jour</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for booking in bookings %}
             <tr>
-                <td>{{ booking.id }}</td>
-                <td>{{ booking.dateStart ? booking.dateStart|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ booking.dateEnd ? booking.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.users.email }}</td>
+                <td>{{ booking.dateStart ? booking.dateStart|date('d-m-Y') : '' }}</td>
+                <td>{{ booking.dateEnd ? booking.dateEnd|date('d-m-Y') : '' }}</td>
                 <td>{{ booking.nbreAdults }}</td>
                 <td>{{ booking.nbreChildrens }}</td>
+<td>
+    {% set price = booking.getTarification(tarifications) %}
+    {{ price ? price.price ~ ' €' : 'Tarif non défini' }}
+</td>
+
                 <td>
-<a href="{{ path('app_admin_booking_show', {'id': booking.id}) }}">show</a>
-<a href="{{ path('app_admin_booking_edit', {'id': booking.id}) }}">edit</a>
-
-
+                    <a href="{{ path('app_admin_booking_show', {'id': booking.id}) }}">Afficher</a>
+                    <a href="{{ path('app_admin_booking_edit', {'id': booking.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="7">Aucune réservation trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_booking_new') }}">Create new</a>
+    <a href="{{ path('app_booking_new') }}">Créer une réservation</a>
+
 {% endblock %}

@@ -39,5 +39,40 @@ class TarificationRepository extends ServiceEntityRepository
     //            ->getQuery()
     //            ->getOneOrNullResult()
     //        ;
+
     //    }
+/**
+     * Méthode qui récupère une habitation par son id
+     * @param int $accomodationId
+     * @return array
+     */
+    public function getAccomodationWithInfo(int $accomodationId): array
+    {
+        $entityManager = $this->getEntityManager();
+ 
+        $qb = $entityManager->createQueryBuilder();
+ 
+        $query = $qb->select([
+            'a.id',
+            'a.title',
+            'a.description',
+            'a.size',
+            'a.nbre_bedroom',
+            'a.isAvailable',
+            'a.imagePath',
+            't.price as price',
+            'type.label as typeLabel'
+        ])
+        ->from(Accomodation::class, 'a')
+        ->Join('a.tarifications', 't')
+        ->Join('a.type_accomodation', 'type')
+        ->where('a.id = :id')
+        ->setParameter('id', $accomodationId)
+        ->getQuery();
+ 
+        $result = $query->getResult();
+ 
+        return $result;
+    }
 }
+
