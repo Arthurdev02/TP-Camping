@@ -6,48 +6,36 @@
 
 {% block body %}
 <div class="container">
-	<div class="header">
-		<h1>👨‍🚀 Liste des Explorateurs 🚀</h1>
-		<p>Bienvenue sur la liste des utilisateurs de notre colonie sur Mars ! 🌕🏕️</p>
-	</div>
+<h1>📋 Liste des Utilisateurs</h1>
 
 
-<table class="table table-hover shadow-lg">
-	<thead class="table-dark"></thead>
+<table class="table-users">
+	<thead></thead>
 
             <tr>
 <th>🆔 ID</th>
 <th>📧 Email</th>
 <th>🔑 Rôles</th>
 <th>🔒 Mot de passe</th>
-<th>👤 Nom d'utilisateur</th>
+
 <th>⚙️ Actions</th>
 
             </tr>
         </thead>
         <tbody>
 {% for user in users %}
-	<tr>
 		<td>{{ user.id }}</td>
 		<td>{{ user.email }}</td>
-	</tr>
-
 <td>{{ user.roles ? user.roles|json_encode : 'Aucun' }}</td>
 <td>••••••••</td>
-{# Sécurité: on ne montre pas le mot de passe en clair #}
-<td>{{ user.username }}</td>
-<td></td>
 
-<a href="{{ path('app_user_show', {'id': user.id}) }}" class="btn btn-info btn-sm">👁️ Voir</a>
-<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-warning btn-sm">✏️ Modifier</a></td></tr>{% else %}<tr></tr>
-
-<td colspan="6" class="text-center text-muted">⛺ Aucun utilisateur trouvé. Peut-être sont-ils en exploration spatiale ? 🌌</td></tr>{% endfor %}
+<td>
+	<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-modifier">✏️ Modifier</a>
+</td></tr>{% else %}<tr>
+<td colspan="5" class="text-center text-muted">🚀 Aucun utilisateur trouvé.</td></tr>{% endfor %}
 
         </tbody>
     </table>
-
-<div class="text-center mt-4">
-	<a href="{{ path('app_user_new') }}" class="btn btn-success">➕ Ajouter un nouvel explorateur</a>
-</div></div>
+</div>
 
 {% endblock %}

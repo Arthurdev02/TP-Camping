@@ -1,430 +1,61 @@
-body {
-    font-family: "Arial", sans-serif;
-        margin: 0;
-    padding: 0;
-        background-color: #0a0a0a;
-        color: white;
-    }
-/* Hero Section */
-.hero {
-    background: url('../images/mars-bg.jpg') center/cover no-repeat;
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-}
-.hero h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.8);
-}
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #ff4500;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-        font-weight: bold;
-        box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
-}
-.btn:hover {
-    background: #d43f00;
-}
-/* Hébergements */
-.hebergements {
-    text-align: center;
-    padding: 50px 20px;
-    }
-.hebergement-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.hebergement {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
-    text-align: center;
-    width: 30%;
-}
-.hebergement img {
-    width: 100%;
-    border-radius: 10px;
-}
-/* Témoignages */
-.testimonials {
-    text-align: center;
-    padding: 50px 20px;
-    background: #222;
-}
-.testimonial-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    }
-.testimonial {
-    background: #333;
-    padding: 15px;
-    border-radius: 10px;
-    width: 30%;
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    }
-/* Contact */
-.contact {
-    text-align: center;
-    padding: 50px 20px;
-        background: #ff4500;
-        color: white;
-}
-.contact a {
-    color: white;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-nav {
-    background: linear-gradient(90deg, #6e260e, #ff4500);
-    /* Dégradé rouge/orange martien */
-    padding: 15px 0;
-    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
-    border-bottom: 3px solid #ff6347;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    transition: 0.3s ease-in-out;
-    background: rgba(255, 69, 0, 0.2);
-    /* Légère transparence */
-    backdrop-filter: blur(5px);
-}
-
-nav ul li a:hover {
-    background: rgba(255, 69, 0, 0.5);
-    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
-    color: #ffcc00;
-    /* Jaune martien */
-}
-
-/* 🔥 Effet spécial pour le lien actif */
-nav ul li a.active,
-nav ul li a:focus {
-    background: #ffcc00;
-    color: #6e260e;
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
-}
-
-/* 🌌 Style futuriste pour le profil et la connexion */
-nav ul li:last-child a {
-    border: 2px solid #ffcc00;
-    padding: 10px 20px;
-    border-radius: 20px;
-}
-
-nav ul li:last-child a:hover {
-    background: #ffcc00;
-    color: #6e260e;
-}
-
-/* ------------------ */
-/* 🌌 PAGE CONTACT MARS */
-/* ------------------ */
-
-.contact-container {
-    max-width: 700px;
-    margin: 80px auto;
-    background: #1a1a1a;
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.5);
-    text-align: center;
-}
-
-.contact-container h1 {
-    color: #ff4500;
-    font-size: 28px;
-    text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.8);
-}
-
-.contact-info {
-    background: rgba(255, 69, 0, 0.2);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-size: 16px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-form label {
-    text-align: left;
-    font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff4500;
-    border-radius: 5px;
-    background: rgba(255, 69, 0, 0.1);
-    color: white;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-form button {
-    background: #ff4500;
-    color: white;
-    font-size: 16px;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
-    transition: 0.3s ease-in-out;
-}
-
-.contact-form button:hover {
-    background: #ffcc00;
-    color: #1a1a1a;
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
-}
-
-.fun-facts {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(255, 69, 0, 0.1);
-    border-radius: 10px;
-}
-
-.fun-facts h2 {
-    color: #ffcc00;
-}
-
-.fun-facts ul {
-    list-style: none;
-    padding: 0;
-}
-
-.fun-facts li {
-    text-align: left;
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.fun-facts li strong {
-    color: #ff4500;
-}
-
-/* ------------------ */
-/* 🚀 PAGE DE CONNEXION FUTURISTE */
-/* ------------------ */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: url('../images/mars-login-bg.jpg') center/cover no-repeat;
-    /* Image de fond (optionnelle) */
-    background-color: #0a0a0a;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.login-container {
-    background: rgba(255, 69, 0, 0.15);
-    border: 2px solid #ff4500;
-    backdrop-filter: blur(8px);
-    padding: 40px;
-    width: 350px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.7);
-}
-
-.login-container h1 {
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #ffcc00;
-    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.9);
-}
-
-.login-container p {
-    font-size: 14px;
-}
-
-.error {
-    background: rgba(255, 0, 0, 0.2);
-    color: #ff0000;
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-/* 🛰️ Formulaire */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    font-weight: bold;
-    text-align: left;
-    display: block;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff4500;
-    border-radius: 5px;
-    background: rgba(255, 69, 0, 0.1);
-    color: white;
-    font-size: 16px;
-}
-
-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* 🔥 Bouton animé */
-.btn {
-    background: linear-gradient(90deg, #ff4500, #ffcc00);
-    color: white;
-    font-size: 16px;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8);
-    transition: 0.3s ease-in-out;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background: #ffcc00;
-    color: #0a0a0a;
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
-}
-
-/* 🔗 Lien inscription */
-.login-container a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
-}
-
-/* ------------------ */
-/* 🌌 BOTTOM BAR FUTURISTE */
-/* ------------------ */
-
-.bottom-bar {
-    background: linear-gradient(90deg, #6e260e, #ff4500);
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0px -4px 10px rgba(255, 69, 0, 0.3);
-    border-top: 2px solid #ffcc00;
-}
-
-.bottom-content {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.bottom-content a {
-    color: #ffcc00;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-}
-
-.bottom-content a:hover {
-    text-decoration: underline;
-    color: #ffffff;
-}
+/* Style général du footer spatial */
 .footer {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+        border-top: 2px solid #0f3460;
+        position: fixed;
+        bottom: 0;
+    width: 100%;
+}
+
+/* 🌌 Footer Spatial Optimisé */
+.footer {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff;
+    padding: 15px 0;
+    /* Réduction de la hauteur */
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+        border-top: 2px solid #0f3460;
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
-    background: #1d1f21;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+        /* Taille du texte réduite */
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
+        justify-content: space-around;
+        max-width: 1000px;
+        /* Réduction de la largeur max */
+        margin: 0 auto;
 }
 
 .footer-section {
     flex: 1;
-    min-width: 250px;
-    margin: 10px;
+    min-width: 200px;
+    margin: 5px;
+    /* Moins d'espacement */
 }
 
 .footer-section h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #ff4f4f;
+    color: #00d4ff;
+    text-transform: uppercase;
+    font-size: 1rem;
+        /* Réduction de la taille */
+        margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    /* Texte plus petit */
 }
 
 .footer-section ul {
@@ -433,275 +64,515 @@ input::placeholder {
 }
 
 .footer-section ul li {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .footer-section ul li a {
     text-decoration: none;
     color: #ffffff;
-    transition: color 0.3s ease-in-out;
+    transition: 0.3s;
+    font-size: 0.85rem;
+    /* Texte ajusté */
 }
 
 .footer-section ul li a:hover {
-    color: #ff4f4f;
-}
-
-.footer-section a {
-    text-decoration: none;
-    color: #ff4f4f;
-}
-
-.footer-section a:hover {
+    color: #00d4ff;
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+/* ⚡ Espace pour éviter que le footer ne couvre le contenu */
 body {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    font-family: 'Arial', sans-serif;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    background: rgba(255, 165, 0, 0.1);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.3);
-}
-
-table {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.table-dark th {
-    background: #ff4500;
-    color: white;
-}
-
-.btn {
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-}
-
-.btn-success {
-    background-color: #4CAF50;
-    border: none;
-}
-
-.btn-warning {
-    background-color: #FFA500;
-    border: none;
-}
-
-.btn-info {
-    background-color: #17A2B8;
-    border: none;
-}
-
-.text-muted {
-    font-style: italic;
-}
-
-.text-center {
-    text-align: center;
-}
-
-/* 🌌 Arrière-plan Mars + Espace */
+/* Ajout d'un espace pour éviter que le footer ne couvre le contenu */
 body {
-    background: linear-gradient(to right, #1c1c1c, #3a3a3a, #ff4500);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* 🛰️ Style du conteneur principal */
-.container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
-    margin-top: 20px;
+main {
+    flex: 1;
 }
 
-/* 🌕 En-tête */
-.header {
-    text-align: center;
-    background: rgba(255, 165, 0, 0.2);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+/* 🌌 Navbar avec fond spatial */
+.navbar {
+    background: url('../images/space-bg.jpg') center/cover no-repeat, linear-gradient(135deg, #1a1a2e, #16213e);
+    border-bottom: 2px solid #0f3460;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    padding: 12px 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+        z-index: 1000;
 }
 
-/* 🚀 Table Stylée */
-.table {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.table th {
-    background: #ff4500;
-    color: white;
-    padding: 12px;
-    text-align: center;
-}
-
-.table td {
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-/* 🛠️ Boutons améliorés */
-.btn {
-    transition: all 0.3s ease-in-out;
-    border-radius: 8px;
+/* 🛰️ Ajustement du titre et du logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #00d4ff;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
-.btn:hover {
+.navbar-brand img {
+    height: 45px;
+    margin-right: 10px;
+}
+
+.site-title {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    color: #00d4ff;
+}
+
+/* 🔘 Bouton Toggle pour Mobile */
+.navbar-toggler {
+    border: none;
+    background: #00d4ff;
+    padding: 7px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.navbar-toggler .navbar-toggle-icon {
+    background-color: #00d4ff;
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.navbar-toggler:hover {
+    background: #0f3460;
+}
+
+/* 🔗 Liens de Navigation */
+.navbar-nav .nav-link {
+    color: #00d4ff;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00;
     transform: scale(1.05);
 }
 
-/* 📩 Bouton Infos */
-.btn-info {
-    background-color: #17A2B8;
-    border: none;
+/* 👤 Icône Utilisateur */
+.nav-item {
+    position: relative;
 }
 
-.btn-warning {
-    background-color: #FFA500;
-    border: none;
+.icon-user {
+    font-size: 1.8rem;
+    color: #00d4ff;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 15px;
 }
 
-.btn-success {
-    background-color: #4CAF50;
-    border: none;
-}
-
-/* 🛑 Message Aucun utilisateur */
-.text-muted {
-    font-style: italic;
-    color: #ddd;
-}
-
-.accueil {
-    background: rgba(255, 165, 0, 0.2);
-    /* Fond léger orange */
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.3);
-    display: inline-block;
-    margin: 50px auto;
-    max-width: 80%;
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* 🚀 Style du titre */
-.accueil h1 {
-    font-size: 2.5em;
+.icon-user:hover {
     color: #ffcc00;
-    text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.8);
 }
 
-/* ✨ Animation d'apparition */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+/* 📂 Dropdown User */
+.dropdown-menu {
+    display: none;
+    /* Caché par défaut */
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: rgba(22, 33, 62, 0.9);
+    border: 1px solid #0f3460;
+    border-radius: 5px;
+    width: 200px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 212, 255, 0.3);
+        text-align: left;
+}
+
+/* ✨ Effet d’apparition du menu */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* 🛠️ Style des éléments du menu */
+.dropdown-menu .dropdown-item {
+    display: block;
+    color: #00d4ff;
+        font-size: 1rem;
+        padding: 8px;
+        transition: 0.3s;
+        text-decoration: none;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #0f3460;
+    color: #ffcc00;
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 8px 10px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+                                .navbar-brand img {
+                                    height: 35px;
+                                }
+
+                                .site-title {
+                                    font-size: 1rem;
+                                }
+
+                                .navbar-nav .nav-link {
+                                    font-size: 0.9rem;
+                                    padding: 6px;
+                                }
+
+                                .icon-user {
+                                    font-size: 1.5rem;
+                                }
+
+                                .dropdown-menu {
+                                    width: 180px;
+                                    font-size: 0.9rem;
+                                }
 }
 
-/* 🌌 Arrière-plan inspiré de l'espace et de Mars */
-body {
-    background: linear-gradient(to right, #1c1c1c, #3a3a3a, #ff4500);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
 
-/* 🏕️ Style du conteneur d'accueil */
+/* Styles pour la section d'accueil et les cartes */
 .acceuil {
-    background: rgba(255, 165, 0, 0.2);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.3);
-    display: inline-block;
-    margin: 50px auto;
-    max-width: 80%;
-    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+    font-size: 2rem;
+    color: #00d4ff;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 20px;
 }
 
-/* 🚀 Animation d’apparition */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 🎴 Style de la carte d'hébergement */
 .card {
-    background: rgba(0, 0, 0, 0.7);
+    background: #16213e;
+    color: #ffffff;
     padding: 20px;
-    border-radius: 12px;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        margin: 20px auto;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        text-align: center;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 25px rgba(255, 69, 0, 0.6);
-}
-
-/* 🎨 Styles des titres et descriptions */
 .card-Titre {
-    font-size: 24px;
-    color: #ffcc00;
-    text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.8);
+    font-size: 1.8rem;
+    color: #00d4ff;
 }
 
 .card-description,
 .card-prix,
 .card-capacite {
-    font-size: 18px;
-    color: rgb(0, 0, 0);
-    margin-top: 10px;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #00d4ff;
+    color: #16213e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0f3460;
+    color: #00d4ff;
+}
+.table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #16213e;
+    color: #ffffff;
+    border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.table th,
+.table td {
+    padding: 15px;
+    border: 1px solid #0f3460;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.table th {
+    background: #1a1a2e;
+    color: #00d4ff;
+}
+
+.table tr:nth-child(even) {
+    background: #0f3460;
+}
+
+.table tr:hover {
+    background: #00d4ff;
+    color: #16213e;
+}
+
+a {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+        color: #00d4ff;
+        text-decoration: none;
+        margin: 20px auto;
+        padding: 10px 15px;
+        background: #16213e;
+        border-radius: 5px;
+        width: 200px;
+        transition: 0.3s;
+}
+
+a:hover {
+    background: #00d4ff;
+    color: #16213e;
+}
+
+/* Bouton Delete */
+.btn {
+    display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #ffffff;
+        text-decoration: none;
+        margin: 20px auto;
+        padding: 10px 15px;
+        background: #d9534f;
+        border-radius: 5px;
+        width: 200px;
+    transition: 0.3s;
+    border: none;
+        cursor: pointer;
+}
+
+.btn:hover {
+    background: #c9302c;
+        color: #ffffff;
+    }
+    
+    .site-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+}
+
+/* Style général du formulaire */
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des champs de formulaire */
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style du bouton */
+.btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Gestion des erreurs */
+ul li {
+    color: red;
+    font-size: 0.9rem;
+    list-style: none;
+}
+
+
+/* 👤 Icône Utilisateur - Admin */
+.admin-menu {
+    position: relative;
+}
+
+.admin-menu .icon-user {
+    font-size: 1.8rem;
+    color: #00d4ff;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+
+.admin-menu .icon-user:hover {
+    color: #ffcc00;
+}
+
+/* 📂 Dropdown Administrateur */
+.admin-menu .dropdown-menu {
+    display: none;
+    /* Caché par défaut */
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: rgba(22, 33, 62, 0.95);
+    border: 1px solid #0f3460;
+    border-radius: 8px;
+    width: 220px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 212, 255, 0.3);
+        text-align: left;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+        visibility: hidden;
+}
+
+/* ✨ Effet d’apparition au survol */
+.admin-menu:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 🛠️ Style des éléments du menu */
+.admin-menu .dropdown-item {
+    display: block;
+    color: #00d4ff;
+    font-size: 1rem;
+    padding: 10px;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin-menu .dropdown-item:hover {
+    background: #0f3460;
+    color: #ffcc00;
+    border-radius: 5px;
 }
 
 /* 📱 Responsive */
 @media screen and (max-width: 768px) {
-    .acceuil {
-        max-width: 90%;
-        padding: 20px;
+    .admin-menu .icon-user {
+        font-size: 1.5rem;
     }
 
-    .card {
-        max-width: 90%;
+        .admin-menu .dropdown-menu {
+            width: 180px;
+            font-size: 0.9rem;
+    }
+}
+.nav-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link:hover {
+    color: #ddd;
+}
+
+.icon-user {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.admin-menu:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    color: #fff;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: #444;
+}
+
+/* Ajout d'une meilleure gestion responsive */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        display: block;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .dropdown-item {
+        padding: 8px;
     }
 }

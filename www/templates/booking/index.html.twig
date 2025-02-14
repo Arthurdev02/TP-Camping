@@ -25,8 +25,10 @@
                 <td>{{ booking.nbreAdults }}</td>
                 <td>{{ booking.nbreChildrens }}</td>
                 <td>
-                    <a href="{{ path('app_booking_show', {'id': booking.id}) }}">show</a>
-                    <a href="{{ path('app_booking_edit', {'id': booking.id}) }}">edit</a>
+<a href="{{ path('app_admin_booking_show', {'id': booking.id}) }}">show</a>
+<a href="{{ path('app_admin_booking_edit', {'id': booking.id}) }}">edit</a>
+
+
                 </td>
             </tr>
         {% else %}
