@@ -32,8 +32,9 @@
 </td>
 
                 <td>
-                    <a href="{{ path('app_admin_booking_show', {'id': booking.id}) }}">Afficher</a>
-                    <a href="{{ path('app_admin_booking_edit', {'id': booking.id}) }}">Modifier</a>
+<a href="{{ path('app_booking_show', {'id': booking.id}) }}">Afficher</a>
+<a href="{{ path('app_booking_edit', {'id': booking.id}) }}">Modifier</a>
+
                 </td>
             </tr>
         {% else %}

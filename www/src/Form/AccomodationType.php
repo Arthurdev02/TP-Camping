@@ -29,11 +29,11 @@ class AccomodationType extends AbstractType
             ])
             ->add('tarifications', EntityType::class, [
                 'class' => Tarification::class,
-                'choice_label' => 'id',
+                'choice_label' => 'price',
             ])
             ->add('types', EntityType::class, [
                 'class' => Type::class,
-                'choice_label' => 'id',
+                'choice_label' => 'label',
             ])
         ;
     }

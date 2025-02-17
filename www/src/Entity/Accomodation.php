@@ -26,7 +26,7 @@ class Accomodation
     private ?int $nbreBedrooms = null;
 
     #[ORM\Column]
-    private ?bool $isAvaliable = null;   
+    private ?bool $isAvaliable = true;   
     
     #[ORM\Column(length: 255)]
     private ?string $imagePath = null;
@@ -45,7 +45,7 @@ class Accomodation
 
 
     #[ORM\Column]
-    private ?int $Size = null;
+    private ?int $size = null;
 
 
     public function __construct()
@@ -132,24 +132,24 @@ class Accomodation
 
     public function getTypes(): ?Type
     {
-        return $this->Types;
+        return $this->types;
     }
 
-    public function setTypes(?Type $Types): static
+    public function setTypes(?Type $types): static
     {
-        $this->Types = $Types;
+        $this->types = $types;
 
         return $this;
     }
 
     public function getSize(): ?int
     {
-        return $this->Size;
+        return $this->size;
     }
 
-    public function setSize(int $Size): static
+    public function setSize(int $size): static
     {
-        $this->Size = $Size;
+        $this->size = $size;
 
         return $this;
     }
@@ -187,7 +187,8 @@ class Accomodation
         return $this->isAvaliable;
     }
     
-    public function setAvailable(?bool $isAvaliable): self    {
+    public function setIsAvaliable(?bool $isAvaliable): self 
+   {
         $this->isAvaliable = $isAvaliable;
         return $this;
     }
