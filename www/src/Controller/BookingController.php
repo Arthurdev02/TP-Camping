@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Booking;
 use App\Form\BookingType;
+use App\Repository\TarificationRepository;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,15 +16,15 @@ use Symfony\Component\Routing\Attribute\Route;
 final class BookingController extends AbstractController
 {
     #[Route(name: 'app_booking_index', methods: ['GET'])]
-    public function index(BookingRepository $bookingRepository): Response
+    public function index(BookingRepository $bookingRepository, TarificationRepository $tarificationRepository): Response
     {
         $bookings = $bookingRepository->findAll();
-        $tarifications = $tarificationRepository->findAll(); // ✅ Récupère toutes les tarifications
+        $tarifications =$tarificationRepository->findAll();
 
         return $this->render('/booking/index.html.twig', [
             'bookings' => $bookings,
-            'tarifications' => $tarifications, // ✅ Transmet bien cette variable à Twig
-              ]);
+            'tarifications' => $tarifications, // Maintenant sous forme de Collection
+        ]);
     }
 
     #[Route('/new', name: 'app_booking_new', methods: ['GET', 'POST'])]

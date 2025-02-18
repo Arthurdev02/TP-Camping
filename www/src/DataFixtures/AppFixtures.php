@@ -190,7 +190,9 @@ class AppFixtures extends Fixture
                 'season_id' => 2,
                 'accomodation_id' => 2,
                 'price' => 30
-            ]
+            ],
+
+            
         ];
         //on va boucler sur le tableau pour créer des équipements
         foreach ($array_tarification as $key => $value) {

@@ -26,14 +26,13 @@
                 <td>{{ booking.dateEnd ? booking.dateEnd|date('d-m-Y') : '' }}</td>
                 <td>{{ booking.nbreAdults }}</td>
                 <td>{{ booking.nbreChildrens }}</td>
-<td>
-    {% set price = booking.getTarification(tarifications) %}
-    {{ price ? price.price ~ ' €' : 'Tarif non défini' }}
-</td>
-
                 <td>
-<a href="{{ path('app_booking_show', {'id': booking.id}) }}">Afficher</a>
-<a href="{{ path('app_booking_edit', {'id': booking.id}) }}">Modifier</a>
+                    {% set tarification = booking.getTarification(tarifications) %}
+                    {{ tarification ? tarification.price ~ ' €' : 'Tarif non défini' }}
+                </td>
+                <td>
+                    <a href="{{ path('app_booking_show', {'id': booking.id}) }}">Afficher</a>
+                    <a href="{{ path('app_booking_edit', {'id': booking.id}) }}">Modifier</a>
 
                 </td>
             </tr>
@@ -45,6 +44,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_booking_new') }}">Créer une réservation</a>
 
 {% endblock %}

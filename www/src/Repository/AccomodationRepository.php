@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Repository;
 
 use App\Entity\Accomodation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 /**
  * @extends ServiceEntityRepository<Accomodation>
@@ -16,28 +16,25 @@ class AccomodationRepository extends ServiceEntityRepository
         parent::__construct($registry, Accomodation::class);
     }
 
-    //    /**
-    //     * @return Accomodation[] Returns an array of Accomodation objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('a.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /**
+     * Ajouter une nouvelle entité en base de données.
+     */
+    public function save(Accomodation $accomodation, bool $flush = true): void
+    {
+        $this->getEntityManager()->persist($accomodation);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 
-    //    public function findOneBySomeField($value): ?Accomodation
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    /**
+     * Supprimer une entité de la base de données.
+     */
+    public function remove(Accomodation $accomodation, bool $flush = true): void
+    {
+        $this->getEntityManager()->remove($accomodation);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 }

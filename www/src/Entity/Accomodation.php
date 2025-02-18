@@ -30,6 +30,7 @@ class Accomodation
     
     #[ORM\Column(length: 255)]
     private ?string $imagePath = null;
+    
 
     /**
      * @var Collection<int, Equipement>
@@ -200,4 +201,11 @@ class Accomodation
     {
         return $this->isAvaliable;
     }
+
+    public function getPriceTarification(): ?string
+{
+    return $this->tarifications ? $this->tarifications->getPrice() : null;
+}
+
+
 }

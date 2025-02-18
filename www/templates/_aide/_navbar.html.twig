@@ -4,14 +4,8 @@
 			</button>
 
 		<div
-			class="container-fluid col-11">
-			{# Logo du site #}
-			<div class="d-flex align-items-center site-branding">
-				<a href="{{ path('app_home') }}" class="navbar-brand d-flex align-items-center">
-					<img src="/images/logo.png" alt="logo du site">
-					<span class="site-title"> Mars travel</span>
-				</a>
-			</div>
+class="container-fluid col-11">
+
 
 			{# Espace navigation #}
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -21,7 +15,9 @@
 					</li>
 
 		<li class="nav-item">
-		</li></ul></div>{# Espace administrateur #}<div class="dropdown admin-menu"><a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink">
+</li></div>{# Espace administrateur #}<div class="dropdown admin-menu">
+<a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink">
+
 		<i class="fa-regular fa-circle-user icon-user"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 		{% if app.user %}
 

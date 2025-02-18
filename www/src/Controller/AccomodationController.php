@@ -43,12 +43,16 @@ final class AccomodationController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_accomodation_show', methods: ['GET'])]
-    public function show(Accomodation $accomodation): Response
-    {
-        return $this->render('accomodation/show.html.twig', [
-            'accomodation' => $accomodation,
-        ]);
-    }
+public function show(Accomodation $accomodation): Response
+{
+    $price = $accomodation->getPriceTarification(); // Récupérer le prix
+
+    return $this->render('accomodation/show.html.twig', [
+        'accomodation' => $accomodation,
+        'price' => $price,
+    ]);
+}
+    
 
     #[Route('/{id}/edit', name: 'app_accomodation_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Accomodation $accomodation, EntityManagerInterface $entityManager): Response
@@ -77,5 +81,5 @@ final class AccomodationController extends AbstractController
         }
 
         return $this->redirectToRoute('app_accomodation_index', [], Response::HTTP_SEE_OTHER);
-    }
+    }   
 }

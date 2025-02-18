@@ -126,4 +126,9 @@ class AdminController extends AbstractController
         }
         return $this->redirectToRoute('app_admin_booking_index');
     }
+    #[Route('/clothing', name: 'app_admin_clothings', methods: ['GET'])]
+    public function indexClothing(): Response
+    {
+        return $this->render('clothing/index.html.twig');
+    }
 }

@@ -3,7 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\BookingRepository;
+use App\Entity\Tarification;
+use App\Entity\Accomodation;
+use App\Entity\User;
+use App\Entity\Season;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BookingRepository::class)]
@@ -97,34 +103,49 @@ class Booking
         return $this;
     }
 
-    public function getAccomodations(): ?Accomodation
+    public function getAccomodation(): ?Accomodation
     {
         return $this->Accomodations;
     }
 
-    public function setAccomodation(?Accomodation $Accomodations): static
+    public function setAccomodation(?Accomodation $accomodation): static
     {
         $this->Accomodations = $Accomodations;
 
         return $this;
     }
-    public function getTarification(Collection $tarifications): ?Tarification
+    public function getTarification(Collection|array $tarifications): ?Tarification
     {
-        $season = 'Basse';
-        $month = (int) $this->getDateStart()->format('m');
-
-        if (in_array($month, [6, 7, 8])) {
-            $season = 'Haute';
-        } elseif (in_array($month, [4, 5, 9, 10])) {
-            $season = 'Moyenne';
+        // Convertir un tableau en Collection si nécessaire
+        if (is_array($tarifications)) {
+            $tarifications = new ArrayCollection($tarifications);
         }
-
+    
+        // Vérifier si dateStart est défini pour éviter une erreur
+        if ($this->getDateStart() === null) {
+            return null;
+        }
+    
+        $month = (int) $this->getDateStart()->format('m');
+        $season = match (true) {
+            in_array($month, [6, 7, 8])  => 'Haute',
+            in_array($month, [4, 5, 9, 10]) => 'Moyenne',
+            default => 'Basse'
+        };
+    
+        // Vérifier que la collection de tarifications n'est pas vide
+        if ($tarifications->isEmpty()) {
+            return null;
+        }
+    
         foreach ($tarifications as $tarification) {
-            if ($tarification->getSeason()->getName() === $season) {
+            if ($tarification->getSeason()->getLabel() === $season) {
                 return $tarification;
             }
         }
-
+    
         return null;
     }
+    
+    
 }
