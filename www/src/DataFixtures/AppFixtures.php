@@ -181,19 +181,21 @@ class AppFixtures extends Fixture
     {
         //on crée un tableau avec les tarifs
         $array_tarification = [
-            [
-                'season_id' => 1,
-                'accomodation_id' => 1,
-                'price' => 50
-            ],
-            [
-                'season_id' => 2,
-                'accomodation_id' => 2,
-                'price' => 30
-            ],
-
+                ['season_id' => 1, 'accomodation_id' => 1, 'price' => 50],
+                ['season_id' => 2, 'accomodation_id' => 2, 'price' => 30],
+                ['season_id' => 1, 'accomodation_id' => 2, 'price' => 60],
+                ['season_id' => 2, 'accomodation_id' => 1, 'price' => 40],
+                ['season_id' => 1, 'accomodation_id' => 1, 'price' => 55],
+                ['season_id' => 2, 'accomodation_id' => 2, 'price' => 35],
+                ['season_id' => 1, 'accomodation_id' => 2, 'price' => 70],
+                ['season_id' => 2, 'accomodation_id' => 1, 'price' => 45],
+                ['season_id' => 1, 'accomodation_id' => 1, 'price' => 65],
+                ['season_id' => 2, 'accomodation_id' => 2, 'price' => 50],
+                ['season_id' => 1, 'accomodation_id' => 2, 'price' => 75],
+                ['season_id' => 2, 'accomodation_id' => 1, 'price' => 55],
+            ];
             
-        ];
+        
         //on va boucler sur le tableau pour créer des équipements
         foreach ($array_tarification as $key => $value) {
             //on instancie une saison
