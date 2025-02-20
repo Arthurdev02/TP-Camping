@@ -38,7 +38,9 @@
 
                 <td>
                     <a href="{{ path('app_accomodation_show', {'id': accomodation.id}) }}">show</a>
-                    <a href="{{ path('app_accomodation_edit', {'id': accomodation.id}) }}">edit</a>
+<a href="{{ path('app_booking_reserver', {'id': accomodation.id}) }}">Réserver</a>
+
+
                 </td>
             </tr>
         {% else %}
@@ -48,6 +50,9 @@
         {% endfor %}
         </tbody>
     </table>
+{% if is_granted('ROLE_ADMIN') %}
 
     <a href="{{ path('app_accomodation_new') }}">Create new</a>
+{% endif %}
+
 {% endblock %}

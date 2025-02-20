@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\Accomodation;
 use App\Form\BookingType;
 use App\Repository\TarificationRepository;
 use App\Repository\BookingRepository;
@@ -82,5 +83,55 @@ final class BookingController extends AbstractController
         }
 
         return $this->redirectToRoute('app_booking_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/booking/clossing/{id}', name: 'app_booking_clossing', methods: ['GET', 'POST'])]
+    public function clossing(int $id, Request $request): Response
+    {
+        // Implémente la logique pour réserver (par exemple, marquer la réservation comme validée)
+        
+        return $this->redirectToRoute('app_booking_index');
+    }
+    #[Route('/booking/reserver/{id}', name: 'app_booking_reserver', methods: ['GET', 'POST'])]
+    public function reserver(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        // Vérifie si la réservation existe ou crée une nouvelle
+        $booking = new Booking();
+        
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser(); // Assure-toi que l'utilisateur est bien connecté
+        if (!$user) {
+            throw $this->createAccessDeniedException('Vous devez être connecté pour réserver.');
+        }
+
+        // Récupérer l'hébergement associé
+        $accomodation = $entityManager->getRepository(Accomodation::class)->find($id);
+        if (!$accomodation) {
+            throw $this->createNotFoundException('Hébergement introuvable.');
+        }
+
+        // Associer l'utilisateur et l'hébergement à la réservation
+        $booking->setUsers($user);
+        $booking->setAccomodation($accomodation);
+
+        // Création du formulaire
+        $form = $this->createForm(BookingType::class, $booking);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+                        // Sauvegarde de la réservation
+            $entityManager->persist($booking);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Réservation effectuée avec succès !');
+
+            return $this->redirectToRoute('app_booking_index');
+        }
+
+        // Affichage du formulaire
+        return $this->render('booking/reserver.html.twig', [
+            'form' => $form->createView(),
+            'accomodation' => $accomodation,
+        ]);
     }
 }

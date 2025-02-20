@@ -27,10 +27,11 @@ class BookingType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'id',
             ])
-            ->add('Accomodations', EntityType::class, [
+            ->add('accomodation', EntityType::class, [
                 'class' => Accomodation::class,
                 'choice_label' => 'id',
             ])
+            
         ;
     }
 

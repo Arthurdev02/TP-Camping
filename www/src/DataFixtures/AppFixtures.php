@@ -249,7 +249,7 @@ class AppFixtures extends Fixture
             $accomodation->setDescription($value['description']);
             $accomodation->setSize($value['size']);
             $accomodation->setNbreBedrooms($value['nbre_bedrooms']);
-            $accomodation->setAvailable($value['is_avaliable']);
+            $accomodation->setIsAvaliable($value['is_avaliable']);
             $accomodation->setImagePath($value['image_path']);
 
             // Gestion des relations OneToMany ou ManyToOne pour Type

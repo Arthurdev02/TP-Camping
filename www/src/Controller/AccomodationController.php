@@ -17,8 +17,10 @@ final class AccomodationController extends AbstractController
     #[Route(name: 'app_accomodation_index', methods: ['GET'])]
     public function index(AccomodationRepository $accomodationRepository): Response
     {
+        $accomodations = $accomodationRepository->findAll(); // Récupérer tous les hébergements
+
         return $this->render('accomodation/index.html.twig', [
-            'accomodations' => $accomodationRepository->findAll(),
+            'accomodations' => $accomodations, // Envoyer la liste à Twig
         ]);
     }
 

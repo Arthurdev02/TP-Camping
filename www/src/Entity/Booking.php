@@ -21,6 +21,7 @@ class Booking
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'bookings')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $users = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -35,9 +36,10 @@ class Booking
     #[ORM\Column]
     private ?int $nbre_childrens = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Accomodation $Accomodations = null;
-
+    #[ORM\ManyToOne(targetEntity: Accomodation::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Accomodation $accomodation = null;
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -105,15 +107,16 @@ class Booking
 
     public function getAccomodation(): ?Accomodation
     {
-        return $this->Accomodations;
+        return $this->accomodation;
     }
-
+    
     public function setAccomodation(?Accomodation $accomodation): static
     {
-        $this->Accomodations = $Accomodations;
-
+        $this->accomodation = $accomodation;
         return $this;
     }
+    
+    
     public function getTarification(Collection|array $tarifications): ?Tarification
     {
         // Convertir un tableau en Collection si nécessaire

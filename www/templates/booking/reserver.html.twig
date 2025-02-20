@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver
+{% endblock %}
+
+{% block body %}
+	<h1>Réserver un hébergement</h1>
+
+	<p>Hébergement sélectionné :
+		{{ accomodation.id }}</p>
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	<button type="submit">Valider la réservation</button>
+	{{ form_end(form) }}
+
+	<a href="{{ path('app_booking_index') }}">Retour à la liste des réservations</a>
+{% endblock %}
+
