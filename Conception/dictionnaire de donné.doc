@@ -1,0 +1,85 @@
+Dictionnaire de Données
+
+1. Table : user
+
+Représente les utilisateurs du système.
+
+id (integer) : Identifiant unique de l'utilisateur
+email (varchar(180)) : Adresse e-mail de l'utilisateur
+roles (longtext) : Rôles attribués à l'utilisateur
+password (varchar(255)) : Mot de passe de l'utilisateur (haché)
+username (varchar(255)) : Nom d'utilisateur
+
+
+
+2. Table : accommodation
+
+Représente les logements disponibles à la réservation.
+
+id (integer) : Identifiant unique du logement
+tarifications_id (integer) : Référence vers la tarification appliquée
+types_id (integer) : Référence vers le type de logement
+title (varchar(255)) : Titre du logement
+description (longtext) : Description du logement
+nbre_bedrooms (integer) : Nombre de chambres
+is_available (tinyint) : Disponibilité du logement (1 = disponible, 0 = non)
+image_path (varchar(255)) : Chemin de l'image illustrant le logement
+size (integer) : Taille du logement en mètres carrés
+
+
+
+3. Table : booking
+
+Représente les réservations effectuées par les utilisateurs.
+
+id (integer) : Identifiant unique de la réservation
+users_id (integer) : Référence vers l'utilisateur ayant effectué la réservation
+accomodations_id (integer) : Référence vers le logement réservé
+date_start (datetime) : Date de début de la réservation
+date_end (datetime) : Date de fin de la réservation
+nbre_adults (integer) : Nombre d'adultes pour la réservation
+nbre_childrens (integer) : Nombre d'enfants pour la réservation
+
+
+4. Table : type
+
+Représente les types de logements.
+
+id (integer) : Identifiant unique du type
+label (varchar(255)) : Nom du type de logement
+
+
+5. Table : equipement
+
+Représente les équipements disponibles dans les logements.
+
+id (integer) : Identifiant unique de l'équipement
+label (varchar(255)) : Nom de l'équipement
+
+
+6. Table : accomodation_equipement
+
+Table de liaison entre les logements et les équipements.
+
+accomodation_id (integer) : Référence vers un logement
+equipement_id (integer) : Référence vers un équipement
+
+
+7. Table : season
+
+Représente les saisons, utilisées pour définir les périodes tarifaires.
+
+id (integer) : Identifiant unique de la saison
+label (varchar(255)) : Nom de la saison
+date_start (datetime) : Date de début de la saison
+date_end (datetime) : Date de fin de la saison
+
+
+8. Table : tarification
+
+Représente les prix des logements selon la saison.
+
+id (integer) : Identifiant unique de la tarification
+season_id (integer) : Référence vers la saison concernée
+accomodation_id (integer) : Référence vers le logement concerné
+price (decimal(10,2)) : Prix appliqué pendant la saison
